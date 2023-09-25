@@ -3,9 +3,33 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{6DA08C31-9B05-4C4A-A83F-4234243F5CBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedGranite.Api", "Server\RedGranite.Api\RedGranite.Api.csproj", "{28F2DE4E-FA67-41EF-9F0E-E78E251D7259}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedGranite.Core", "Server\RedGranite.Core\RedGranite.Core.csproj", "{59C0B59E-42A2-4AC7-9D2E-19550AD00043}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{28F2DE4E-FA67-41EF-9F0E-E78E251D7259}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28F2DE4E-FA67-41EF-9F0E-E78E251D7259}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28F2DE4E-FA67-41EF-9F0E-E78E251D7259}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28F2DE4E-FA67-41EF-9F0E-E78E251D7259}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59C0B59E-42A2-4AC7-9D2E-19550AD00043}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59C0B59E-42A2-4AC7-9D2E-19550AD00043}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59C0B59E-42A2-4AC7-9D2E-19550AD00043}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59C0B59E-42A2-4AC7-9D2E-19550AD00043}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{28F2DE4E-FA67-41EF-9F0E-E78E251D7259} = {6DA08C31-9B05-4C4A-A83F-4234243F5CBB}
+		{59C0B59E-42A2-4AC7-9D2E-19550AD00043} = {6DA08C31-9B05-4C4A-A83F-4234243F5CBB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EFD7E57D-AEE3-49E2-A896-1BF1E26EFC39}
