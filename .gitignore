@@ -4,14 +4,11 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 # Local appsettings
-src/RedGranite.Api/appsettings.local.json
-
-# Ignores dependency files
-src/Client/node_modules
+src/Server/RedGranite.Api/appsettings.local.json
 
 # Ignores compiled TypeScript files
-src/Client/ClientApp/**/*.js
-src/Client/wwwroot/**/*.js
+src/Client/RedGranite.Web/ClientApp/**/*.js
+src/Client/RedGranited.Web/wwwroot/**/*.js
 
 # User-specific files
 *.rsuser
@@ -463,3 +460,4 @@ $RECYCLE.BIN/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+'+
