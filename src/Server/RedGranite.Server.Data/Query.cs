@@ -13,4 +13,5 @@ public class Query
     }
 
     public Item GetItem() => _itemRepository.GetItem();
+    public List<Item> GetItems() => _itemRepository.GetItems();
 }
