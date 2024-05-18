@@ -1,10 +1,8 @@
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Identity.Web;
-using Microsoft.Identity.Web.Resource;
-using RedGranite.Core;
+using RedGranite.Server.GraphQl;
 
-namespace RedGranite.Api
+namespace RedGranite.Server.Api
 {
     public class Program
     {

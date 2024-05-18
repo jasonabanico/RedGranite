@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RedGranite.Core\RedGranite.Core.csproj" />
+    <ProjectReference Include="..\RedGranite.Server.Core\RedGranite.Server.Core.csproj" />
   </ItemGroup>
 
 </Project>

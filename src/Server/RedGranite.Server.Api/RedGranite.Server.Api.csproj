@@ -15,8 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RedGranite.Core\RedGranite.Core.csproj" />
-    <ProjectReference Include="..\RedGranite.Data\RedGranite.Data.csproj" />
+    <ProjectReference Include="..\RedGranite.Server.Core\RedGranite.Server.Core.csproj" />
+    <ProjectReference Include="..\RedGranite.Server.Data\RedGranite.Server.Data.csproj" />
   </ItemGroup>
 
   <ItemGroup>
