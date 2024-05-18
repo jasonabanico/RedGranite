@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedGranite.Api", "Server\Re
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedGranite.Core", "Server\RedGranite.Core\RedGranite.Core.csproj", "{59C0B59E-42A2-4AC7-9D2E-19550AD00043}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedGranite.Data", "Server\RedGranite.Data\RedGranite.Data.csproj", "{081AB73F-721C-4F54-A940-B24C030A9831}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{59C0B59E-42A2-4AC7-9D2E-19550AD00043}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59C0B59E-42A2-4AC7-9D2E-19550AD00043}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59C0B59E-42A2-4AC7-9D2E-19550AD00043}.Release|Any CPU.Build.0 = Release|Any CPU
+		{081AB73F-721C-4F54-A940-B24C030A9831}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{081AB73F-721C-4F54-A940-B24C030A9831}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{081AB73F-721C-4F54-A940-B24C030A9831}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{081AB73F-721C-4F54-A940-B24C030A9831}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +36,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{28F2DE4E-FA67-41EF-9F0E-E78E251D7259} = {6DA08C31-9B05-4C4A-A83F-4234243F5CBB}
 		{59C0B59E-42A2-4AC7-9D2E-19550AD00043} = {6DA08C31-9B05-4C4A-A83F-4234243F5CBB}
+		{081AB73F-721C-4F54-A940-B24C030A9831} = {6DA08C31-9B05-4C4A-A83F-4234243F5CBB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EFD7E57D-AEE3-49E2-A896-1BF1E26EFC39}
