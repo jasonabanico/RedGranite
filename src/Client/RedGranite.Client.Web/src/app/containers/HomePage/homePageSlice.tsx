@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export interface ItemState {
+export interface initialState {
     name: string
     description: string
 }
@@ -10,7 +10,7 @@ const initialState: ItemState = {
     description: ''
 }
 
-export const itemSlice = createSlice({
+export const ItemSlice = createSlice({
     name: 'item',
     initialState,
     reducers: {
@@ -22,3 +22,6 @@ export const itemSlice = createSlice({
         }
     }
 });
+
+export const {} = ItemSlice.actions;
+export default ItemSlice.reducer;
