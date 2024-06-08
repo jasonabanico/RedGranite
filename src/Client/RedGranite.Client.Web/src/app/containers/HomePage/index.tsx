@@ -40,7 +40,7 @@ export function HomePage(props: IHomePageProps) {
 
     return (
         <Container>
-            <h1>RedGranite</h1>
+            <h1>Red Granite</h1>
         </Container>
     );
 }
