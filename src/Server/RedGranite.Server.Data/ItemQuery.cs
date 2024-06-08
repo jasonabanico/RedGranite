@@ -3,11 +3,11 @@ using RedGranite.Server.Data.Repositories;
 
 namespace RedGranite.Server.GraphQl;
 
-public class Query
+public class ItemQuery
 {
     private readonly IItemRepository _itemRepository;
 
-    public Query()
+    public ItemQuery()
     {
         _itemRepository = new ItemRepository();
     }

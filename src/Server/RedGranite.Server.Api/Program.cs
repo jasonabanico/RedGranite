@@ -13,7 +13,7 @@ namespace RedGranite.Server.Api
                 .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
             builder.Services
                 .AddGraphQLServer()
-                .AddQueryType<Query>();
+                .AddQueryType<ItemQuery>();
             builder.Services.AddControllers();
 
             var app = builder.Build();
