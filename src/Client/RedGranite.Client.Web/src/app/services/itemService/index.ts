@@ -1,12 +1,12 @@
 import { apolloClient } from "../../graphql";
-import { GET_ITEMS } from "./queries";
-import { GetItems } from "./__generated__/GetItems";
+import { ITEMS } from "./queries";
+import { Items } from "./__generated__/Items";
 
 class ItemService {
-  async getItems(page: Number, perPage = 5): Promise<GetAnimePage["Page"]> {
+  async getItems(page: Number, perPage = 5): Promise<Items> {
     try {
       const response = await apolloClient.query({
-        query: GET_ITEMS,
+        query: ITEMS,
         variables: { page, perPage },
       });
 
