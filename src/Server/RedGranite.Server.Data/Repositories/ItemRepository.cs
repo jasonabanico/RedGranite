@@ -22,7 +22,8 @@ public class ItemRepository : IItemRepository
             {
                 Id = id,
                 Name = $"Item #{i}",
-                Description = $"This is Item {i} with Id {id}"
+                ShortDescription = $"This is Item {i} with Id {id}.",
+                LongDescription = $"This is Item {i} with Id {id}. This text should not be displayed in a list as it should be very long.",
             };
             items.Add(id, item);
         }
