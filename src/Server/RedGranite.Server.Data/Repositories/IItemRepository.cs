@@ -4,6 +4,6 @@ namespace RedGranite.Server.Data.Repositories;
 
 public interface IItemRepository
 {
-    Item GetItem();
-    List<Item> GetItems();
+    Item GetItem(string id);
+    List<Item> GetItems(int page, int perPage);
 }

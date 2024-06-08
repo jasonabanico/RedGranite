@@ -12,6 +12,6 @@ public class Query
         _itemRepository = new ItemRepository();
     }
 
-    public Item GetItem() => _itemRepository.GetItem();
-    public List<Item> GetItems() => _itemRepository.GetItems();
+    public Item GetItem(string id) => _itemRepository.GetItem(id);
+    public List<Item> GetItems(int page, int perPage) => _itemRepository.GetItems(page, perPage);
 }

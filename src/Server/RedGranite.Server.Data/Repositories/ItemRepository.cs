@@ -4,27 +4,41 @@ namespace RedGranite.Server.Data.Repositories;
 
 public class ItemRepository : IItemRepository
 {
-    public Item GetItem()
+    private Dictionary<string, Item> _items;
+
+    public ItemRepository()
     {
-        return new Item()
-        {
-            Name = "Item",
-            Description = "Description"
-        };
+        _items = CreateItems(10);
     }
 
-    public List<Item> GetItems()
+    private Dictionary<string, Item> CreateItems(int count)
     {
-        var items = new List<Item>();
-        for (int i = 0; i <= 5; i++)
+        // create fake items
+        var items = new Dictionary<string, Item>();
+        for (int i = 0; i < count; i++)
         {
+            var id = Guid.NewGuid().ToString();
             var item = new Item()
             {
-                Name = $"Item-{i}",
-                Description = $"Description #{i}"
+                Id = id,
+                Name = $"Item #{i}",
+                Description = $"This is Item {i} with Id {id}"
             };
-            items.Add(item);
+            items.Add(id, item);
         }
+
         return items;
+    }
+
+    public Item GetItem(string id)
+    {
+        return _items[id];
+    }
+
+    public List<Item> GetItems(int page, int perPage)
+    {
+        var list = _items.Values.ToList();
+        int skip = (page - 1) * perPage;
+        return list.Skip(skip).Take(perPage).ToList();
     }
 }
