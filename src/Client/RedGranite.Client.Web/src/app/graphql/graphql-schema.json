@@ -1,18 +1,18 @@
 {
   "__schema": {
     "queryType": {
-      "name": "Query"
+      "name": "ItemQuery"
     },
     "mutationType": null,
     "subscriptionType": null,
     "types": [
       {
         "kind": "OBJECT",
-        "name": "Query",
+        "name": "ItemQuery",
         "description": null,
         "fields": [
           {
-            "name": "item",
+            "name": "GetItem",
             "description": null,
             "args": [
               {
@@ -43,7 +43,7 @@
             "deprecationReason": null
           },
           {
-            "name": "items",
+            "name": "GetItems",
             "description": null,
             "args": [
               {
