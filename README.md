@@ -1,16 +1,16 @@
 # Red Granite
 - Full-Stack Boilerplate
 - Stack:
--- Client
---- React
---- Redux Toolkit
---- React Bootstrap
---- GraphQL (Apollo)
--- Server
---- .Net
---- HotChocolate
---- Cosmos DB
---- Azure AD B2C
+    - Client
+        - React
+        - Redux Toolkit
+        - React Bootstrap
+        - GraphQL (Apollo)
+    - Server
+        - .Net
+        - HotChocolate
+        - Cosmos DB
+        - Azure AD B2C
 
 # Guidance
 - React Pro Boilderplate: https://github.com/ipenywis/react-pro-boilerplate
