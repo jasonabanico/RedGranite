@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="HotChocolate" Version="13.9.5" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\RedGranite.Server.Core\RedGranite.Server.Core.csproj" />
   </ItemGroup>
 
