@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { HomePage } from './app/containers/HomePage';
-import { AddItemPage } from './app/containers/AddItemPage';
+import { CreateItem } from './app/containers/Item/createItem';
 
 const AppContainer = styled.div`
   width: 100%;
@@ -15,10 +15,11 @@ const AppContainer = styled.div`
 function App() {
   return (
     <AppContainer>
+      <h1>Red Granite</h1>
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/addItem" element={<AddItemPage />} />
+          <Route path="/createItem" element={<CreateItem />} />
         </Routes>
       </Router>
     </AppContainer>

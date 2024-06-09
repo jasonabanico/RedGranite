@@ -1,9 +1,8 @@
-import React from "react";
 import { createSelector } from "reselect";
-import styled from "styled-components";
 import { makeSelectItems } from "./selectors";
 import { useAppSelector } from "../../hooks";
-import { Button, Container, Table } from "react-bootstrap";
+import { Container, Table, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const stateSelector = createSelector(makeSelectItems, (items) => ({
     items,
@@ -19,7 +18,7 @@ export function ItemsSection() {
     
     return (
         <Container>
-            <Button className='btn btn-success my-3'>Create</Button>
+            <Link to="/createItem" className='btn btn-success my-3'>Create</Link>
             <Table className='itemsTable'>
                 <thead>
                     <tr>
