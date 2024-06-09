@@ -26,7 +26,7 @@ export function HomePage(props: IHomePageProps) {
     //const { setItems } = actionDispatch(useAppDispatch());
 
     const fetchItems = async () => {
-        const items = await itemService.getItems(1, 5).catch((err) => {
+        const items = await itemService.getItems(1).catch((err) => {
             console.log("Error:", err);
         });
 

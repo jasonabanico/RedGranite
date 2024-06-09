@@ -14,10 +14,22 @@ namespace RedGranite.Server.Api
             builder.Services
                 .AddGraphQLServer()
                 .AddQueryType<ItemQuery>();
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowSpecificOrigin",
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:3000")
+                               .AllowAnyHeader()
+                               .AllowAnyMethod()
+                               .AllowCredentials();
+                    });
+            });
             builder.Services.AddControllers();
 
             var app = builder.Build();
             //app.UseHttpsRedirection();
+            app.UseCors("AllowSpecificOrigin");
             app.UseAuthentication();
             app.UseAuthorization();
             app.MapControllers();
