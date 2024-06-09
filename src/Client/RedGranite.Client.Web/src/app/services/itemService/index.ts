@@ -1,12 +1,12 @@
 import { apolloClient } from "../../graphql";
-import { ITEMS } from "./queries";
-import { Items } from "./__generated__/Items";
+import { GET_ITEMS } from "./queries";
+import { GetItems } from "./__generated__/GetItems";
 
 class ItemService {
-  async getItems(page: Number, perPage = 5): Promise<Items> {
+  async getItems(page: Number, perPage = 5): Promise<GetItems> {
     try {
       const response = await apolloClient.query({
-        query: ITEMS,
+        query: GET_ITEMS,
         variables: { page, perPage },
       });
 
@@ -15,7 +15,7 @@ class ItemService {
 
       console.log("DATA: ", response.data);
 
-      return response.data.Page;
+      return response.data;
     } catch (err) {
       throw err;
     }

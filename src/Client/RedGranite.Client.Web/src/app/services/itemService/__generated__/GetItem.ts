@@ -4,21 +4,21 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
-// GraphQL query operation: Items
+// GraphQL query operation: GetItem
 // ====================================================
 
-export interface Items_items {
+export interface GetItem_GetItem {
   __typename: "Item";
   id: string;
   name: string;
   shortDescription: string;
+  longDescription: string;
 }
 
-export interface Items {
-  items: Items_items[];
+export interface GetItem {
+  GetItem: GetItem_GetItem;
 }
 
-export interface ItemsVariables {
-  page: number;
-  perPage: number;
+export interface GetItemVariables {
+  id: string;
 }
