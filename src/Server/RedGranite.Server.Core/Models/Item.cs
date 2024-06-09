@@ -1,4 +1,4 @@
-﻿namespace RedGranite.Server.Core;
+﻿namespace RedGranite.Server.Core.Models;
 
 public class Item
 {

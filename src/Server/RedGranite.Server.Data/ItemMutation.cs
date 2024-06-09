@@ -1,6 +1,7 @@
 ﻿using HotChocolate;
-using RedGranite.Server.Core;
-using RedGranite.Server.Data.Repositories;
+using RedGranite.Server.Core.Interfaces;
+using RedGranite.Server.Core.Models;
+using RedGranite.Server.Cosmos.Repositories;
 
 namespace RedGranite.Server.Data;
 

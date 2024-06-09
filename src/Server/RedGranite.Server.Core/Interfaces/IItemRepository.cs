@@ -1,6 +1,6 @@
-﻿using RedGranite.Server.Core;
+﻿using RedGranite.Server.Core.Models;
 
-namespace RedGranite.Server.Data.Repositories;
+namespace RedGranite.Server.Core.Interfaces;
 
 public interface IItemRepository
 {
