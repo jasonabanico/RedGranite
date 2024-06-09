@@ -3,6 +3,7 @@ import { Container, Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import itemService from '../../services/itemService';
 import { useState } from 'react';
+import { ItemInput } from '../../../../__generated__/globalTypes';
 
 export function CreateItem() {
     const [name, setName] = useState('');
@@ -13,14 +14,20 @@ export function CreateItem() {
 
     const handleSubmit = async (event: any) => {
         event.preventDefault();
-        /*
-        await itemService.addItem(
+        const itemInput: ItemInput = {
+            id: "",
             name,
             shortDescription,
-            longDescription).catch((err) => {
-            console.log("Error:", err);
-        });
-        */
+            longDescription    
+        };
+
+        const item = await itemService
+            .addItem(itemInput)
+            .catch((err) => {
+                console.log("Error:", err);
+            });
+        
+        console.log("Item:", JSON.stringify(item));
     }
 
     return (

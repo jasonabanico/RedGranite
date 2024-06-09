@@ -3,7 +3,6 @@ import { Dispatch } from "redux";
 import styled from "styled-components";
 import itemService from "../../services/itemService";
 import { useAppDispatch } from "../../hooks";
-import { GetItems } from "../../services/itemService/__generated__/GetItems";
 import { setItems } from "./homePageSlice";
 import { ItemsSection } from "./itemsSection";
 
@@ -27,9 +26,11 @@ export function HomePage(props: IHomePageProps) {
     const { setItems } = actionDispatch(useAppDispatch());
 
     const fetchItems = async () => {
-        const items = await itemService.getItems(1).catch((err) => {
-            console.log("Error:", err);
-        });
+        const items = await itemService
+            .getItems(1)
+            .catch((err) => {
+                console.log("Error:", err);
+            });
 
         if (items) setItems(items);
     }
