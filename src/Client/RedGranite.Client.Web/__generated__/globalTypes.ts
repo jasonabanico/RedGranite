@@ -7,6 +7,13 @@
 // START Enums and Input Objects
 //==============================================================
 
+export interface ItemInput {
+  id: string;
+  name: string;
+  shortDescription: string;
+  longDescription: string;
+}
+
 //==============================================================
 // END Enums and Input Objects
 //==============================================================

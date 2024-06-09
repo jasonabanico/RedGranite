@@ -42,4 +42,9 @@ public class ItemRepository : IItemRepository
         int skip = (page - 1) * perPage;
         return list.Skip(skip).Take(perPage).ToList();
     }
+
+    public void AddItem(Item item)
+    {
+        _items.Add(item.Id, item);
+    }
 }

@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Identity.Web;
+using RedGranite.Server.Data;
 using RedGranite.Server.GraphQl;
 
 namespace RedGranite.Server.Api
@@ -13,6 +14,7 @@ namespace RedGranite.Server.Api
                 .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
             builder.Services
                 .AddGraphQLServer()
+                .AddMutationType<ItemMutation>()
                 .AddQueryType<ItemQuery>();
             builder.Services.AddCors(options =>
             {
