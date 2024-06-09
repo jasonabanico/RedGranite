@@ -12,10 +12,7 @@ namespace RedGranite.Server.Api
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
-            builder.Services
-                .AddGraphQLServer()
-                .AddMutationType<ItemMutation>()
-                .AddQueryType<ItemQuery>();
+            builder.Services.AddDataServices();
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("AllowSpecificOrigin",
