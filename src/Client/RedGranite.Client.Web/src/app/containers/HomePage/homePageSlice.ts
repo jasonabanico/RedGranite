@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Items} from '../../services/itemService/__generated__/Items';
 
 const initialState = {
     items: null,

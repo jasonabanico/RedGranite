@@ -15,7 +15,7 @@ class ItemService {
 
       console.log("DATA: ", response.data);
 
-      return response.data;
+      return response.data.GetItems;
     } catch (err) {
       throw err;
     }
