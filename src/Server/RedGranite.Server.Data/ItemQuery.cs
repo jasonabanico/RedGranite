@@ -8,14 +8,16 @@ public class ItemQuery
 {
     private readonly IItemRepository _itemRepository;
 
-    public ItemQuery()
+    public ItemQuery(IItemRepository itemRepository)
     {
-        _itemRepository = new ItemRepository();
+        _itemRepository = itemRepository;
     }
 
     [GraphQLName("GetItem")]
-    public Item GetItem(string id) => _itemRepository.GetItem(id);
+    public async Task<Item> GetItemAsync(string id) =>
+        await _itemRepository.GetItemAsync(id);
 
     [GraphQLName("GetItems")]
-    public List<Item> GetItems(int page, int perPage) => _itemRepository.GetItems(page, perPage);
+    public async Task<List<Item>> GetItemsAsync(int page, int perPage) =>
+        await _itemRepository.GetItemsAsync(page, perPage);
 }

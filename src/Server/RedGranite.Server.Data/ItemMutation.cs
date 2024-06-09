@@ -8,16 +8,16 @@ public class ItemMutation
 {
     private readonly IItemRepository _itemRepository;
 
-    public ItemMutation()
+    public ItemMutation(IItemRepository itemRepository)
     {
-        _itemRepository = new ItemRepository();
+        _itemRepository = itemRepository;
     }
 
     [GraphQLName("AddItem")]
-    public Item? AddItemAsync(Item item)
+    public async Task<Item> AddItemAsync(Item item)
     {
         item.Id = Guid.NewGuid().ToString();
-        _itemRepository.AddItem(item);
+        await _itemRepository.AddItemAsync(item);
         return item;
     }
 }

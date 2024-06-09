@@ -1,22 +1,41 @@
-﻿using RedGranite.Server.Core.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using RedGranite.Server.Core.Interfaces;
 using RedGranite.Server.Core.Models;
 
 namespace RedGranite.Server.Cosmos.Repositories;
 
 public class ItemRepository : IItemRepository
 {
-    public void AddItem(Item item)
+    private readonly AppDbContext _dbContext;
+    private static bool _ensureCreated { get; set; } = false;
+
+    public ItemRepository(AppDbContext dbContext)
     {
-        throw new NotImplementedException();
+        _dbContext = dbContext;
+
+        if (!_ensureCreated)
+        {
+            _dbContext.Database.EnsureCreated();
+            _ensureCreated = true;
+        }
     }
 
-    public Item GetItem(string id)
+    public async Task AddItemAsync(Item item)
     {
-        throw new NotImplementedException();
+        _dbContext.Add(item);
+        await _dbContext.SaveChangesAsync();
     }
 
-    public List<Item> GetItems(int page, int perPage)
+    public async Task<Item> GetItemAsync(string id)
     {
-        throw new NotImplementedException();
+        return await _dbContext.Items.FirstOrDefaultAsync(item => item.Id == id) ?? new Item();
+    }
+
+    public async Task<List<Item>> GetItemsAsync(int page, int perPage)
+    {
+        return await _dbContext.Items
+            .Skip((page - 1) * perPage)
+            .Take(perPage)
+            .ToListAsync();
     }
 }
