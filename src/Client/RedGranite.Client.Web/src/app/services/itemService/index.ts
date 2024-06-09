@@ -13,8 +13,6 @@ class ItemService {
       if (!response || !response.data)
         throw new Error("Cannot get items.");
 
-      console.log("DATA: ", response.data);
-
       return response.data.GetItems;
     } catch (err) {
       throw err;

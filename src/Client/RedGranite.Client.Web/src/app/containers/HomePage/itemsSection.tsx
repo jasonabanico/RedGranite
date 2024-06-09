@@ -41,7 +41,7 @@ export function ItemsSection() {
     return (
         <ItemsContainer>
             {items && items.map((item: any) => (
-                <ItemContainer>
+                <ItemContainer key={item.id}>
                     <ItemTitle>
                         {item.name}
                     </ItemTitle>
