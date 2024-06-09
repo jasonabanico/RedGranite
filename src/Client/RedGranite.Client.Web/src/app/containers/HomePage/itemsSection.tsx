@@ -26,6 +26,12 @@ const ItemTitle = styled.h6`
     font-weight: 600;
 `;
 
+const ItemBody = styled.div`
+    margin-top: 8px;
+    font-size: 15px;
+    color: #000;
+`;
+
 const stateSelector = createSelector(makeSelectItems, (items) => ({
     items,
 }));
@@ -45,6 +51,9 @@ export function ItemsSection() {
                     <ItemTitle>
                         {item.name}
                     </ItemTitle>
+                    <ItemBody>
+                        {item.shortDescription}
+                    </ItemBody>
                 </ItemContainer>
             ))}
             <ItemContainer>
