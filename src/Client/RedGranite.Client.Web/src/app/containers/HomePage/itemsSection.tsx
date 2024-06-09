@@ -3,34 +3,7 @@ import { createSelector } from "reselect";
 import styled from "styled-components";
 import { makeSelectItems } from "./selectors";
 import { useAppSelector } from "../../hooks";
-
-const ItemsContainer = styled.div`
-    max-width: 1280px;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-evenly;
-`;
-
-const ItemContainer = styled.div`
-    width: 12em;
-    height: 16em;
-    display: flex;
-    flex-direction: column;
-`;
-
-const ItemTitle = styled.h6`
-    margin-top: 8px;
-    font-size: 19px;
-    color: #000;
-    font-weight: 600;
-`;
-
-const ItemBody = styled.div`
-    margin-top: 8px;
-    font-size: 15px;
-    color: #000;
-`;
+import { Button, Container, Table } from "react-bootstrap";
 
 const stateSelector = createSelector(makeSelectItems, (items) => ({
     items,
@@ -45,20 +18,30 @@ export function ItemsSection() {
         return null;
     
     return (
-        <ItemsContainer>
-            {items && items.map((item: any) => (
-                <ItemContainer key={item.id}>
-                    <ItemTitle>
-                        {item.name}
-                    </ItemTitle>
-                    <ItemBody>
-                        {item.shortDescription}
-                    </ItemBody>
-                </ItemContainer>
-            ))}
-            <ItemContainer>
-
-            </ItemContainer>
-        </ItemsContainer>
+        <Container>
+            <Button className='btn btn-success my-3'>Create</Button>
+            <Table className='itemsTable'>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Short Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {items && items.map((item: any) => (
+                        <tr key={item.id}>
+                            <td>{item.id}</td>
+                            <td>{item.name}</td>
+                            <td>{item.shortDescription}</td>
+                            <td>
+                                <Button className='btn bt-sm btn-primary'>Edit</Button>
+                                <Button className='btn bt-sm btn-danger ms-2'>Delete</Button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </Table>
+        </Container>
     );
 }
