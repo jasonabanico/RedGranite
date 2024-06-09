@@ -40,13 +40,13 @@ export function ItemsSection() {
     
     return (
         <ItemsContainer>
-            items && items.map((item: any) = (
+            {items && items.map((item: any) => (
                 <ItemContainer>
                     <ItemTitle>
-                        item.Title
+                        {item.name}
                     </ItemTitle>
                 </ItemContainer>
-            ))
+            ))}
             <ItemContainer>
 
             </ItemContainer>

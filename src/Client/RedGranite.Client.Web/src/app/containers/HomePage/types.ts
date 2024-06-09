@@ -1,5 +1,5 @@
 import { GetItems } from "../../services/itemService/__generated__/GetItems";
 
 export interface IHomePageState {
-    items: GetItems["GetItems"];
+    items: GetItems["GetItems"] | null;
 }
