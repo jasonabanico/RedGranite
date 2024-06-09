@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { HomePage } from './app/containers/HomePage';
-import { CreateItem } from './app/containers/Item/createItem';
+import { AddItem } from './app/containers/Item/addItem';
 
 const AppContainer = styled.div`
   width: 100%;
@@ -19,7 +19,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/createItem" element={<CreateItem />} />
+          <Route path="/addItem" element={<AddItem />} />
         </Routes>
       </Router>
     </AppContainer>

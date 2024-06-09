@@ -18,7 +18,7 @@ export function ItemsSection() {
     
     return (
         <Container>
-            <Link to="/createItem" className='btn btn-success my-3'>Create</Link>
+            <Link to="/addItem" className='btn btn-success my-3'>Create</Link>
             <Table className='itemsTable'>
                 <thead>
                     <tr>

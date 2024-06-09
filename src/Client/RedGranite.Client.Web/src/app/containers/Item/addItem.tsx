@@ -5,7 +5,7 @@ import itemService from '../../services/itemService';
 import { useState } from 'react';
 import { ItemInput } from '../../../../__generated__/globalTypes';
 
-export function CreateItem() {
+export function AddItem() {
     const [name, setName] = useState('');
     const [shortDescription, setShortDescription] = useState('');
     const [longDescription, setLongDescription] = useState('');
@@ -32,7 +32,7 @@ export function CreateItem() {
 
     return (
         <Container>
-            <h2>Add New Item</h2>
+            <h2>Add Item</h2>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formItemName">
                     <Form.Label htmlFor="name">Name</Form.Label>
