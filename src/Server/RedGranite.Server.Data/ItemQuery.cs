@@ -1,6 +1,5 @@
 ﻿using RedGranite.Server.Core.Interfaces;
 using RedGranite.Server.Core.Models;
-using RedGranite.Server.Cosmos.Repositories;
 
 namespace RedGranite.Server.GraphQl;
 

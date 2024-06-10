@@ -16,6 +16,7 @@ function App() {
   return (
     <AppContainer>
       <h1>Red Granite</h1>
+      <hr />
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />

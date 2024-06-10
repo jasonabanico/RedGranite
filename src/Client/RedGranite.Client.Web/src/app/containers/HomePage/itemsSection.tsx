@@ -25,6 +25,7 @@ export function ItemsSection() {
                         <th>ID</th>
                         <th>Name</th>
                         <th>Short Description</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
