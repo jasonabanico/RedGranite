@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Web;
 using RedGranite.Server.Cosmos;
 using RedGranite.Server.Data;
@@ -13,7 +13,9 @@ namespace RedGranite.Server.Api
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
-            builder.AddCosmosDbContext<AppDbContext>("CosmosConnection", "RedGranite");
+            builder.Services.AddDbContext<AppDbContext>(options =>
+                options.UseCosmos("CosmosConnection", "RedGranite"));
+            builder.Services.AddRepository();
             builder.Services.AddDataServices();
             builder.Services.AddCors(options =>
             {

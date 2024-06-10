@@ -13,10 +13,12 @@ public class ItemQuery
         _itemRepository = itemRepository;
     }
 
+    [UseServiceScope]
     [GraphQLName("GetItem")]
     public async Task<Item> GetItemAsync(string id) =>
         await _itemRepository.GetItemAsync(id);
 
+    [UseServiceScope]
     [GraphQLName("GetItems")]
     public async Task<List<Item>> GetItemsAsync(int page, int perPage) =>
         await _itemRepository.GetItemsAsync(page, perPage);

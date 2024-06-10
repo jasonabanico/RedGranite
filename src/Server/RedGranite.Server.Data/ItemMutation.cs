@@ -13,6 +13,7 @@ public class ItemMutation
         _itemRepository = itemRepository;
     }
 
+    [UseServiceScope]
     [GraphQLName("AddItem")]
     public async Task<Item> AddItemAsync(Item item)
     {

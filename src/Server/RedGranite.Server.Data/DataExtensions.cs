@@ -5,9 +5,9 @@ namespace RedGranite.Server.Data;
 
 public static class DataExtensions
 {
-    public static void AddDataServices(this IServiceCollection service)
+    public static void AddDataServices(this IServiceCollection services)
     {
-        service
+        services
             .AddGraphQLServer()
             .AddMutationType<ItemMutation>()
             .AddQueryType<ItemQuery>();
