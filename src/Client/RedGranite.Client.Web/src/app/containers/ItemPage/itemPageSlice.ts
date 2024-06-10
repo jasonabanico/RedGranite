@@ -13,7 +13,7 @@ export const addItem = createAsyncThunk(
     },
 )
 
-const itemSlice = createSlice({
+const itemPageSlice = createSlice({
     name: 'itemPage',
     initialState: [],
     reducers: {},
@@ -25,4 +25,4 @@ const itemSlice = createSlice({
     }
 });
 
-export default itemSlice.reducer;
+export default itemPageSlice.reducer;

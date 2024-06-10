@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Container, Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import { ItemInput } from '../../../../__generated__/globalTypes';
-import { addItem } from './itemSlice';
+import { addItem } from './itemPageSlice';
 import { useAppDispatch } from '../../hooks';
 
 export function AddItemPage() {
