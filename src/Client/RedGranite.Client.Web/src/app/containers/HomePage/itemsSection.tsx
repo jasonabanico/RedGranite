@@ -1,8 +1,8 @@
 import { createSelector } from "reselect";
-import { makeSelectItems } from "./selectors";
-import { useAppSelector } from "../../hooks";
 import { Container, Table, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useAppSelector } from "../../hooks";
+import { makeSelectItems } from "./selectors";
 
 const stateSelector = createSelector(makeSelectItems, (items) => ({
     items,

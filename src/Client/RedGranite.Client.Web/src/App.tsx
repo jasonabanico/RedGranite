@@ -1,8 +1,7 @@
-import React from 'react';
 import styled from "styled-components";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { HomePage } from './app/containers/HomePage';
-import { AddItem } from './app/containers/Item/addItem';
+import { AddItemPage } from './app/containers/Item/addItemPage';
 
 const AppContainer = styled.div`
   width: 100%;
@@ -20,7 +19,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/addItem" element={<AddItem />} />
+          <Route path="/addItem" element={<AddItemPage />} />
         </Routes>
       </Router>
     </AppContainer>

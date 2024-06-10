@@ -1,18 +1,18 @@
-import { useDispatch } from 'react-redux';
+import { useState, useEffect } from 'react';
 import { Container, Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
-import itemService from '../../services/itemService';
-import { useState } from 'react';
 import { ItemInput } from '../../../../__generated__/globalTypes';
+import { addItem } from './itemSlice';
+import { useAppDispatch } from '../../hooks';
 
-export function AddItem() {
+export function AddItemPage() {
     const [name, setName] = useState('');
     const [shortDescription, setShortDescription] = useState('');
     const [longDescription, setLongDescription] = useState('');
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
-    const handleSubmit = async (event: any) => {
+    const handleSubmit = (event: any) => {
         event.preventDefault();
         const itemInput: ItemInput = {
             id: "",
@@ -20,15 +20,8 @@ export function AddItem() {
             shortDescription,
             longDescription    
         };
-
-        const item = await itemService
-            .addItem(itemInput)
-            .catch((err) => {
-                console.log("Error:", err);
-            });
-        
-        console.log("Item:", JSON.stringify(item));
-    }
+        dispatch(addItem(itemInput));
+    };
 
     return (
         <Container>
