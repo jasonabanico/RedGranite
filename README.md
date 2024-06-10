@@ -10,7 +10,6 @@
         - .Net
         - HotChocolate
         - Cosmos DB
-        - Azure AD B2C
 
 # Guidance
 - React Pro Boilderplate: https://github.com/ipenywis/react-pro-boilerplate
