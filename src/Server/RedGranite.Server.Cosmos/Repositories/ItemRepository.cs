@@ -33,9 +33,11 @@ public class ItemRepository : IItemRepository
 
     public async Task<List<Item>> GetItemsAsync(int page, int perPage)
     {
-        return await _dbContext.Items
+        var items = await _dbContext.Items.ToListAsync();
+
+        return items
             .Skip((page - 1) * perPage)
             .Take(perPage)
-            .ToListAsync();
+            .ToList();
     }
 }

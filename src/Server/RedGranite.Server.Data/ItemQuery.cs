@@ -6,20 +6,13 @@ namespace RedGranite.Server.GraphQl;
 
 public class ItemQuery
 {
-    private readonly IItemRepository _itemRepository;
-
-    public ItemQuery(IItemRepository itemRepository)
-    {
-        _itemRepository = itemRepository;
-    }
-
     [UseServiceScope]
     [GraphQLName("GetItem")]
-    public async Task<Item> GetItemAsync(string id) =>
-        await _itemRepository.GetItemAsync(id);
+    public async Task<Item> GetItemAsync(string id, [Service] IItemRepository itemRepository) =>
+        await itemRepository.GetItemAsync(id);
 
     [UseServiceScope]
     [GraphQLName("GetItems")]
-    public async Task<List<Item>> GetItemsAsync(int page, int perPage) =>
-        await _itemRepository.GetItemsAsync(page, perPage);
+    public async Task<List<Item>> GetItemsAsync(int page, int perPage, [Service] IItemRepository itemRepository) =>
+        await itemRepository.GetItemsAsync(page, perPage);
 }

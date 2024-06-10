@@ -6,19 +6,12 @@ namespace RedGranite.Server.Data;
 
 public class ItemMutation
 {
-    private readonly IItemRepository _itemRepository;
-
-    public ItemMutation(IItemRepository itemRepository)
-    {
-        _itemRepository = itemRepository;
-    }
-
     [UseServiceScope]
     [GraphQLName("AddItem")]
-    public async Task<Item> AddItemAsync(Item item)
+    public async Task<Item> AddItemAsync(Item item, [Service] IItemRepository itemRepository)
     {
         item.Id = Guid.NewGuid().ToString();
-        await _itemRepository.AddItemAsync(item);
+        await itemRepository.AddItemAsync(item);
         return item;
     }
 }
