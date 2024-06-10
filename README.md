@@ -1,4 +1,4 @@
-# Red Granite
+# RedGranite
 - Full-Stack Boilerplate
 - Stack:
     - Client

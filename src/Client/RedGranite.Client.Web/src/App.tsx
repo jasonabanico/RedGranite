@@ -15,7 +15,7 @@ const AppContainer = styled.div`
 function App() {
   return (
     <AppContainer>
-      <h1>Red Granite</h1>
+      <h1>RedGranite</h1>
       <hr />
       <Router>
         <Routes>
