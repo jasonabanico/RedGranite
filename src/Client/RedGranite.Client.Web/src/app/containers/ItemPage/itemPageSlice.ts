@@ -5,11 +5,12 @@ import { ItemInput } from '../../../../__generated__/globalTypes';
 export const addItem = createAsyncThunk(
     'itemPage/addItem',
     async (itemInput: ItemInput) => {
-        return await itemService
+        const data = await itemService
             .addItem(itemInput)
             .catch((err: any) => {
                 console.log("Error:", err);
             });
+        return data;
     },
 )
 
