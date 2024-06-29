@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 import { ItemInput } from '../../../../__generated__/globalTypes';
 import { useAppDispatch } from '../../hooks';
 import { saveNewItem } from './saveNewItemSlice';
+import { AddItem } from '../../services/itemService/__generated__/AddItem';
 
 export function AddItemPage() {
     const [name, setName] = useState('');
@@ -16,13 +17,15 @@ export function AddItemPage() {
 
     const handleSubmit = async (event: any) => {
         event.preventDefault();
-        const itemInput: ItemInput = {
+        var itemInput: ItemInput = {
             id: "",
             name,
             shortDescription,
             longDescription    
         };
-        await dispatch(saveNewItem(itemInput));
+        const savedItemAction = await dispatch(saveNewItem(itemInput));
+        const savedItem = savedItemAction.payload as AddItem;
+        itemInput.id = savedItem.AddItem ? savedItem.AddItem.id : "";
         navigate('/');
     };
 
