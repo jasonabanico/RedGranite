@@ -4,17 +4,16 @@ import { Container, Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import { ItemInput } from '../../../../__generated__/globalTypes';
 import { useAppDispatch } from '../../hooks';
-import { saveNewItem } from './saveNewItemSlice';
 import { AddItem } from '../../services/itemService/__generated__/AddItem';
+import { addItem } from '../HomePage/homePageSlice';
+import { saveNewItem } from './saveNewItemSlice';
 
 export function AddItemPage() {
     const [name, setName] = useState('');
     const [shortDescription, setShortDescription] = useState('');
     const [longDescription, setLongDescription] = useState('');
-
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
-
     const handleSubmit = async (event: any) => {
         event.preventDefault();
         var itemInput: ItemInput = {
@@ -26,6 +25,7 @@ export function AddItemPage() {
         const savedItemAction = await dispatch(saveNewItem(itemInput));
         const savedItem = savedItemAction.payload as AddItem;
         itemInput.id = savedItem.AddItem ? savedItem.AddItem.id : "";
+        dispatch(addItem(itemInput));
         navigate('/');
     };
 
