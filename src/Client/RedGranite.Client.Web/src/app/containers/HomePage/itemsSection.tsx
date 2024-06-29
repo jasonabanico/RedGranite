@@ -1,39 +1,61 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Dispatch } from "redux";
 import { createSelector } from "reselect";
 import { Container, Table, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "../../hooks";
 import itemService from "../../services/itemService";
-import { makeSelectItems } from "./selectors";
-import { setItems } from "./homePageSlice";
+import { makeSelectInitialLoad, makeSelectItems, makeSelectPage } from "./selectors";
+import { setItems, resetInitialLoad } from "./homePageSlice";
 
-const stateSelector = createSelector(makeSelectItems, (items) => ({
+const itemsSelector = createSelector(makeSelectItems, (items) => ({
     items,
+}));
+
+const initialLoadSelector = createSelector(makeSelectInitialLoad, (initialLoad) => ({
+    initialLoad,
+}));
+
+const pageSelector = createSelector(makeSelectPage, (page) => ({
+    page,
 }));
 
 const actionDispatch = (dispatch: Dispatch) => ({
     setItems: (items: any) => dispatch(setItems(items)),
+    resetInitialLoad: () => dispatch(resetInitialLoad()),
 });
 
 export function ItemsSection() {
-    const { items } = useAppSelector(stateSelector);
-    const { setItems } = actionDispatch(useAppDispatch());
+    const { items } = useAppSelector(itemsSelector);
+    const { initialLoad } = useAppSelector(initialLoadSelector);
+    const { page } = useAppSelector(pageSelector);
+    const { setItems, resetInitialLoad } = actionDispatch(useAppDispatch());
+    const prevPageRef = useRef<number | undefined>(undefined);
 
-    const fetchItems = async () => {
+    const fetchItems = async (page: number) => {
         const items = await itemService
-            .getItems(1)
+            .getItems(page)
             .catch((err) => {
                 console.log("Error:", err);
             });
 
-        console.log("Fetching.");
         if (items) setItems(items);
     }
 
     useEffect(() => {
-        fetchItems();
-    }, []);
+        if (initialLoad && (!items || items.length === 0)) {
+            fetchItems(page);
+            resetInitialLoad();
+        }
+        prevPageRef.current = page;
+    }, [initialLoad, items, page]);
+
+    useEffect(() => {
+        if (!initialLoad && prevPageRef.current !== page) {
+            fetchItems(page);
+        }
+        prevPageRef.current = page;
+    }, [page, initialLoad]);
 
     return (
         <Container>
