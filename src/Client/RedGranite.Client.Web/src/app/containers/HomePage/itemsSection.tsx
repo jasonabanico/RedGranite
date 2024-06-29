@@ -1,15 +1,39 @@
+import { useEffect } from "react";
+import { Dispatch } from "redux";
 import { createSelector } from "reselect";
 import { Container, Table, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useAppSelector } from "../../hooks";
+import { useAppSelector, useAppDispatch } from "../../hooks";
+import itemService from "../../services/itemService";
 import { makeSelectItems } from "./selectors";
+import { setItems } from "./homePageSlice";
 
 const stateSelector = createSelector(makeSelectItems, (items) => ({
     items,
 }));
 
+const actionDispatch = (dispatch: Dispatch) => ({
+    setItems: (items: any) => dispatch(setItems(items)),
+});
+
 export function ItemsSection() {
     const { items } = useAppSelector(stateSelector);
+    const { setItems } = actionDispatch(useAppDispatch());
+
+    const fetchItems = async () => {
+        const items = await itemService
+            .getItems(1)
+            .catch((err) => {
+                console.log("Error:", err);
+            });
+
+        console.log("Fetching.");
+        if (items) setItems(items);
+    }
+
+    useEffect(() => {
+        fetchItems();
+    }, []);
 
     return (
         <Container>
