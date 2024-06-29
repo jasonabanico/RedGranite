@@ -1,18 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { IHomePageState } from './types';
 
-const initialState = {
-    items: null,
+const initialState: IHomePageState = {
+    items: [],
 }
 
 const HomePageSlice = createSlice({
     name: 'homePage',
     initialState,
     reducers: {
-        setItems(state, action) {
+        setItems: (state, action) => {
             state.items = action.payload;
+        },
+        addItem: (state, action) => {
+            state.items?.push(action.payload);
         }
     }
 });
 
-export const { setItems } = HomePageSlice.actions;
+export const { setItems, addItem } = HomePageSlice.actions;
 export default HomePageSlice.reducer;
