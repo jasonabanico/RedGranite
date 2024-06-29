@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import { ItemInput } from '../../../../__generated__/globalTypes';
 import { useAppDispatch } from '../../hooks';
 import { AddItem } from '../../services/itemService/__generated__/AddItem';
-import { addItem } from '../HomePage/homePageSlice';
+import { addItem } from '../HomePage/itemsSectionSlice';
 import { saveNewItem } from './saveNewItemSlice';
 
 export function AddItemPage() {

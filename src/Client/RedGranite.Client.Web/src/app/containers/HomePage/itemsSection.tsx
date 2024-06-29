@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "../../hooks";
 import itemService from "../../services/itemService";
 import { makeSelectInitialLoad, makeSelectItems, makeSelectPage } from "./selectors";
-import { setItems, resetInitialLoad } from "./homePageSlice";
+import { setItems, resetInitialLoad } from "./itemsSectionSlice";
 
 const itemsSelector = createSelector(makeSelectItems, (items) => ({
     items,

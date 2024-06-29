@@ -1,19 +1,19 @@
 import { createSelector } from "reselect";
 import { IRootState } from "../../types";
 
-const selectHomePage = (state: IRootState) => state.homePage;
+const selectItemsSection = (state: IRootState) => state.itemsSection;
 
 export const makeSelectItems = createSelector(
-    selectHomePage, 
-    (homePage) => homePage.items
+    selectItemsSection, 
+    (itemsSection) => itemsSection.items
 );
 
 export const makeSelectInitialLoad = createSelector(
-    selectHomePage, 
-    (homePage) => homePage.initialLoad
+    selectItemsSection, 
+    (itemsSection) => itemsSection.initialLoad
 );
 
 export const makeSelectPage = createSelector(
-    selectHomePage, 
-    (homePage) => homePage.page
+    selectItemsSection, 
+    (itemsSection) => itemsSection.page
 );

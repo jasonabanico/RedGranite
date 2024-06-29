@@ -1,5 +1,5 @@
-import { IHomePageState } from "./containers/HomePage/types";
+import { IItemsSectionState } from "./containers/HomePage/types";
 
 export interface IRootState {
-  homePage: IHomePageState;
+  itemsSection: IItemsSectionState;
 }

@@ -4,12 +4,12 @@ import {
   Action,
   combineReducers
 } from "@reduxjs/toolkit";
-import homePageReducer from "./containers/HomePage/homePageSlice";
+import itemsSectionReducer from "./containers/HomePage/itemsSectionSlice";
 import saveNewItemReducer from "./containers/ItemPage/saveNewItemSlice";
 import ReduxLogger from "redux-logger";
 
 const rootReducer = combineReducers({
-  homePage: homePageReducer,
+  itemsSection: itemsSectionReducer,
   itemPageSaveNewItem: saveNewItemReducer,
 });
 
