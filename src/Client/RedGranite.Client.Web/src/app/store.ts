@@ -1,19 +1,22 @@
 import {
   configureStore,
   ThunkAction,
-  Action
+  Action,
+  combineReducers
 } from "@reduxjs/toolkit";
 import homePageReducer from "./containers/HomePage/homePageSlice";
-import itemPageReducer from "./containers/ItemPage/itemPageSlice";
+import saveNewItemReducer from "./containers/ItemPage/saveNewItemSlice";
 import ReduxLogger from "redux-logger";
+
+const rootReducer = combineReducers({
+  homePage: homePageReducer,
+  itemPageSaveNewItem: saveNewItemReducer,
+});
 
 export const store = configureStore({
   middleware:(getDefaultMiddleware) =>
     getDefaultMiddleware().concat(ReduxLogger),
-  reducer: {
-    homePage: homePageReducer,
-    itemPage: itemPageReducer,
-  },
+  reducer: rootReducer,
 });
 
 export type AppDispatch = typeof store.dispatch;

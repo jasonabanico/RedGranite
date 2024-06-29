@@ -1,9 +1,10 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Container, Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import { ItemInput } from '../../../../__generated__/globalTypes';
-import { addItem } from './itemPageSlice';
 import { useAppDispatch } from '../../hooks';
+import { saveNewItem } from './saveNewItemSlice';
 
 export function AddItemPage() {
     const [name, setName] = useState('');
@@ -11,8 +12,9 @@ export function AddItemPage() {
     const [longDescription, setLongDescription] = useState('');
 
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
 
-    const handleSubmit = (event: any) => {
+    const handleSubmit = async (event: any) => {
         event.preventDefault();
         const itemInput: ItemInput = {
             id: "",
@@ -20,7 +22,8 @@ export function AddItemPage() {
             shortDescription,
             longDescription    
         };
-        dispatch(addItem(itemInput));
+        await dispatch(saveNewItem(itemInput));
+        navigate('/');
     };
 
     return (

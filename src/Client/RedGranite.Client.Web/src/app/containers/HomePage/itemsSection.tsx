@@ -11,11 +11,6 @@ const stateSelector = createSelector(makeSelectItems, (items) => ({
 export function ItemsSection() {
     const { items } = useAppSelector(stateSelector);
 
-    const isEmptyItems = !items || items.length == 0;
-
-    if (isEmptyItems)
-        return null;
-    
     return (
         <Container>
             <Link to="/addItem" className='btn btn-success my-3'>Create</Link>
