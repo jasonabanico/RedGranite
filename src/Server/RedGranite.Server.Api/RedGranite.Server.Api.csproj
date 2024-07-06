@@ -16,7 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RedGranite.Server.Core\RedGranite.Server.Core.csproj" />
-    <ProjectReference Include="..\RedGranite.Server.Data\RedGranite.Server.GraphQl.csproj" />
+    <ProjectReference Include="..\RedGranite.Server.GraphQl\RedGranite.Server.GraphQl.csproj" />
   </ItemGroup>
 
 </Project>
