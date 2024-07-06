@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Web;
 using RedGranite.Server.Cosmos;
-using RedGranite.Server.Data;
+using RedGranite.Server.GraphQl;
 using System.Configuration;
 
 namespace RedGranite.Server.Api

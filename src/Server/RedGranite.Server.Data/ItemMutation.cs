@@ -1,7 +1,7 @@
 ﻿using RedGranite.Server.Core.Interfaces;
 using RedGranite.Server.Core.Models;
 
-namespace RedGranite.Server.Data;
+namespace RedGranite.Server.GraphQl;
 
 public class ItemMutation
 {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using RedGranite.Server.GraphQl;
 
-namespace RedGranite.Server.Data;
+namespace RedGranite.Server.GraphQl;
 
 public static class DataExtensions
 {
