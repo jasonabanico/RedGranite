@@ -12,6 +12,6 @@ public class ItemQuery
 
     [UseServiceScope]
     [GraphQLName("GetItems")]
-    public async Task<List<Item>> GetItemsAsync(int page, int perPage, [Service] IItemRepository itemRepository) =>
-        await itemRepository.GetItemsAsync(page, perPage);
+    public async Task<List<Item>> GetItemsAsync(DateTimeOffset? startDate, int count, [Service] IItemRepository itemRepository) =>
+        await itemRepository.GetItemsAsync(startDate, count);
 }

@@ -22,6 +22,8 @@ public class ItemRepository : IItemRepository
 
     public async Task AddItemAsync(Item item)
     {
+        item.CreatedAt = DateTime.UtcNow;
+        item.UpdatedAt = DateTime.UtcNow;
         _dbContext.Add(item);
         await _dbContext.SaveChangesAsync();
     }
@@ -31,13 +33,18 @@ public class ItemRepository : IItemRepository
         return await _dbContext.Items.FirstOrDefaultAsync(item => item.Id == id) ?? new Item();
     }
 
-    public async Task<List<Item>> GetItemsAsync(int page, int perPage)
+    public async Task<List<Item>> GetItemsAsync(DateTimeOffset? startDate, int count)
     {
         var items = await _dbContext.Items.ToListAsync();
 
+        if (count > 500)
+            throw new ArgumentException("Item limit is 500");
+
+        startDate = startDate ?? new DateTimeOffset(2999, 1, 1, 0, 0, 0, TimeSpan.Zero);
         return items
-            .Skip((page - 1) * perPage)
-            .Take(perPage)
+            .Where(i => i.UpdatedAt < startDate)
+            .OrderByDescending(e => e.UpdatedAt)
+            .Take(count)
             .ToList();
     }
 }
