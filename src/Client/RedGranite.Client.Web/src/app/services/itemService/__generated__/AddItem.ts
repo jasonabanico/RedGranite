@@ -15,7 +15,7 @@ export interface AddItem_AddItem {
 }
 
 export interface AddItem {
-  AddItem: AddItem_AddItem | null;
+  AddItem: AddItem_AddItem;
 }
 
 export interface AddItemVariables {

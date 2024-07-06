@@ -1,8 +1,8 @@
 import gql from "graphql-tag";
 
 export const GET_ITEMS = gql`
-    query GetItems($page: Int!, $perPage: Int!) {
-        GetItems(page: $page, perPage: $perPage) {
+    query GetItems($isoStartDate: String!, $count: Int!) {
+        GetItems(isoStartDate: $isoStartDate, count: $count) {
             id,
             name,
             shortDescription

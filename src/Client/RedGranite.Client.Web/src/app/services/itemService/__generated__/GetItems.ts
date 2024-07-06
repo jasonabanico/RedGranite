@@ -19,6 +19,6 @@ export interface GetItems {
 }
 
 export interface GetItemsVariables {
-  page: number;
-  perPage: number;
+  isoStartDate: string;
+  count: number;
 }

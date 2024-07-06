@@ -6,11 +6,11 @@ import { AddItem } from "./__generated__/AddItem";
 import { ItemInput } from "../../../../__generated__/globalTypes";
 
 class ItemService {
-  async getItems(page: Number, perPage = 5): Promise<GetItems> {
+  async getItems(isoDateString: String, count = 20): Promise<GetItems> {
     try {
       const response = await apolloClient.query({
         query: GET_ITEMS,
-        variables: { page, perPage },
+        variables: { isoDateString, count },
       });
 
       if (!response || !response.data)

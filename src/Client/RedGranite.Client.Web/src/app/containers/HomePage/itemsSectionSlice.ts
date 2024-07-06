@@ -22,7 +22,7 @@ const ItemsSectionSlice = createSlice({
             state.initialLoad = false;
         },
         addItem: (state, action) => {
-            state.items?.push(action.payload);
+            state.items?.unshift(action.payload);
         }
     }
 });

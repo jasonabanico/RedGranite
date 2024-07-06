@@ -34,7 +34,7 @@ export function ItemsSection() {
 
     const fetchItems = async (page: number) => {
         const items = await itemService
-            .getItems(page)
+            .getItems("")
             .catch((err) => {
                 console.log("Error:", err);
             });
