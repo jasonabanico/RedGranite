@@ -3,6 +3,8 @@ import { GET_ITEMS } from "./queries";
 import { GetItems } from "./__generated__/GetItems";
 import { ADD_ITEM } from "./mutations";
 import { AddItem } from "./__generated__/AddItem";
+import { UPDATE_ITEM } from "./mutations";
+import { UpdateItem } from "./__generated__/UpdateItem";
 import { ItemInput } from "../../../../__generated__/globalTypes";
 
 class ItemService {
@@ -30,13 +32,29 @@ class ItemService {
       });
 
       if (!response || !response.data)
-        throw new Error("Cannot get items.");
+        throw new Error("Cannot add item.");
 
       return response.data;
     } catch (err) {
       throw err;
     }
   }
+
+  async updateItem(item: ItemInput): Promise<UpdateItem> {
+    try {
+      const response = await apolloClient.mutate({
+        mutation: UPDATE_ITEM,
+        variables: { item },
+      });
+
+      if (!response || !response.data)
+        throw new Error("Cannot update item.");
+
+      return response.data;
+    } catch (err) {
+      throw err;
+    }
+  }  
 }
 
 export default new ItemService();

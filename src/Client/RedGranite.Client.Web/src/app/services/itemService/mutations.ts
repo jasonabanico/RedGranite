@@ -7,3 +7,11 @@ export const ADD_ITEM = gql`
         }
     }
 `;
+
+export const UPDATE_ITEM = gql`
+    mutation UpdateItem($item: ItemInput!) {
+        UpdateItem(item: $item) {
+            id
+        }
+    }
+`;

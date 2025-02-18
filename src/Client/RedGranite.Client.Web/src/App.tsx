@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { HomePage } from './app/containers/HomePage';
 import { AddItemPage } from './app/containers/ItemPage/addItemPage';
+import { EditItemPage } from "./app/containers/ItemPage/editItemPage";
 
 const AppContainer = styled.div`
   width: 100%;
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/addItem" element={<AddItemPage />} />
+          <Route path="/editItem" element={<EditItemPage />} />
         </Routes>
       </Router>
     </AppContainer>
