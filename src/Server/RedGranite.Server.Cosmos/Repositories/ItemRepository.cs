@@ -28,6 +28,21 @@ public class ItemRepository : IItemRepository
         await _dbContext.SaveChangesAsync();
     }
 
+    public async Task UpdateItemAsync(Item item)
+    {
+        var existingItem = await _dbContext.Items.FindAsync(item.Id);
+        if (existingItem != null)
+        {
+            existingItem.Name = item.Name;
+            existingItem.ShortDescription = item.ShortDescription;
+            existingItem.LongDescription = item.LongDescription;
+            existingItem.UpdatedAt = DateTime.UtcNow;
+
+            _dbContext.Update(existingItem);
+            await _dbContext.SaveChangesAsync();
+        }
+    }
+
     public async Task<Item> GetItemAsync(string id)
     {
         return await _dbContext.Items.FirstOrDefaultAsync(item => item.Id == id) ?? new Item();

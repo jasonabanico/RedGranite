@@ -13,4 +13,12 @@ public class ItemMutation
         await itemRepository.AddItemAsync(item);
         return item;
     }
+
+    [UseServiceScope]
+    [GraphQLName("UpdateItem")]
+    public async Task<Item> UpdateItemAsync(Item item, [Service] IItemRepository itemRepository)
+    {
+        await itemRepository.UpdateItemAsync(item);
+        return item;
+    }
 }
