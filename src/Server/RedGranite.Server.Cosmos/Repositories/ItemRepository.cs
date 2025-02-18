@@ -33,18 +33,18 @@ public class ItemRepository : IItemRepository
         return await _dbContext.Items.FirstOrDefaultAsync(item => item.Id == id) ?? new Item();
     }
 
-    public async Task<List<Item>> GetItemsAsync(DateTimeOffset? startDate, int count)
+    public async Task<List<Item>> GetItemsAsync(DateTimeOffset? maxDate, int? count)
     {
         var items = await _dbContext.Items.ToListAsync();
 
         if (count > 500)
             throw new ArgumentException("Item limit is 500");
 
-        startDate = startDate ?? new DateTimeOffset(2999, 1, 1, 0, 0, 0, TimeSpan.Zero);
+        maxDate = maxDate ?? new DateTimeOffset(2999, 1, 1, 0, 0, 0, TimeSpan.Zero);
         return items
-            .Where(i => i.UpdatedAt < startDate)
+            .Where(i => i.UpdatedAt < maxDate)
             .OrderByDescending(e => e.UpdatedAt)
-            .Take(count)
+            .Take(count ?? 50)
             .ToList();
     }
 }

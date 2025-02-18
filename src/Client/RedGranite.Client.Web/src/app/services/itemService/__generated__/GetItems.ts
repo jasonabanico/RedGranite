@@ -19,6 +19,6 @@ export interface GetItems {
 }
 
 export interface GetItemsVariables {
-  isoStartDate: string;
-  count: number;
+  isoMaxDate?: string | null;
+  count?: number | null;
 }

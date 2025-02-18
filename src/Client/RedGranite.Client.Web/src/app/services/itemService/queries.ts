@@ -1,8 +1,8 @@
 import gql from "graphql-tag";
 
 export const GET_ITEMS = gql`
-    query GetItems($isoStartDate: String!, $count: Int!) {
-        GetItems(isoStartDate: $isoStartDate, count: $count) {
+    query GetItems($isoMaxDate: String, $count: Int) {
+        GetItems(isoMaxDate: $isoMaxDate, count: $count) {
             id,
             name,
             shortDescription
