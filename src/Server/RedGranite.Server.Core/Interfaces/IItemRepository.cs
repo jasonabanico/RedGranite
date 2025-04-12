@@ -8,4 +8,5 @@ public interface IItemRepository
     Task<List<Item>> GetItemsAsync(DateTimeOffset? maxDate, int? count);
     Task AddItemAsync(Item item);
     Task UpdateItemAsync(Item item);
+    Task DeleteItemAsync(string id);
 }

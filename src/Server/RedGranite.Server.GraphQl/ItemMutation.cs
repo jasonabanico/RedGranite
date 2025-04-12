@@ -21,4 +21,11 @@ public class ItemMutation
         await itemRepository.UpdateItemAsync(item);
         return item;
     }
+
+    [UseServiceScope]
+    [GraphQLName("DeleteItem")]
+    public async Task DeleteItemAsync(string id, [Service] IItemRepository itemRepository)
+    {
+        await itemRepository.DeleteItemAsync(id);
+    }
 }

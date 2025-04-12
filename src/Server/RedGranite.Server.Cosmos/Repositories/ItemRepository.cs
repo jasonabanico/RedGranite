@@ -20,29 +20,6 @@ public class ItemRepository : IItemRepository
         }
     }
 
-    public async Task AddItemAsync(Item item)
-    {
-        item.CreatedAt = DateTime.UtcNow;
-        item.UpdatedAt = DateTime.UtcNow;
-        _dbContext.Add(item);
-        await _dbContext.SaveChangesAsync();
-    }
-
-    public async Task UpdateItemAsync(Item item)
-    {
-        var existingItem = await _dbContext.Items.FindAsync(item.Id);
-        if (existingItem != null)
-        {
-            existingItem.Name = item.Name;
-            existingItem.ShortDescription = item.ShortDescription;
-            existingItem.LongDescription = item.LongDescription;
-            existingItem.UpdatedAt = DateTime.UtcNow;
-
-            _dbContext.Update(existingItem);
-            await _dbContext.SaveChangesAsync();
-        }
-    }
-
     public async Task<Item> GetItemAsync(string id)
     {
         return await _dbContext.Items.FirstOrDefaultAsync(item => item.Id == id) ?? new Item();
@@ -61,5 +38,38 @@ public class ItemRepository : IItemRepository
             .OrderByDescending(e => e.UpdatedAt)
             .Take(count ?? 50)
             .ToList();
+    }
+
+    public async Task AddItemAsync(Item item)
+    {
+        item.CreatedAt = DateTime.UtcNow;
+        item.UpdatedAt = DateTime.UtcNow;
+        _dbContext.Add(item);
+        await _dbContext.SaveChangesAsync();
+    }
+
+    public async Task UpdateItemAsync(Item item)
+    {
+        var savedItem = await _dbContext.Items.FindAsync(item.Id);
+        if (savedItem != null)
+        {
+            savedItem.Name = item.Name;
+            savedItem.ShortDescription = item.ShortDescription;
+            savedItem.LongDescription = item.LongDescription;
+            savedItem.UpdatedAt = DateTime.UtcNow;
+
+            _dbContext.Update(savedItem);
+            await _dbContext.SaveChangesAsync();
+        }
+    }
+
+    public async Task DeleteItemAsync(string id)
+    {
+        var savedItem = await _dbContext.Items.FindAsync(id);
+        if (savedItem != null)
+        {
+            _dbContext.Remove(savedItem);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }
