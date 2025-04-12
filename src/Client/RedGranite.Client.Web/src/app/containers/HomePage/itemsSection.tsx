@@ -4,9 +4,9 @@ import { createSelector } from "reselect";
 import { Container, Table, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "../../hooks";
+import { setItems, resetInitialLoad } from "./itemsSectionSlice";
 import itemService from "../../services/itemService";
 import { makeSelectInitialLoad, makeSelectItems, makeSelectPage } from "./selectors";
-import { setItems, resetInitialLoad } from "./itemsSectionSlice";
 
 const itemsSelector = createSelector(makeSelectItems, (items) => ({
     items,

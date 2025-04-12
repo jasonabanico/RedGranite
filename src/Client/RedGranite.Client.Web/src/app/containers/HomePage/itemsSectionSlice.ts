@@ -7,7 +7,7 @@ const initialState: IItemsSectionState = {
     items: [],
 }
 
-const ItemsSectionSlice = createSlice({
+const itemsSectionSlice = createSlice({
     name: 'homePage',
     initialState,
     reducers: {
@@ -21,11 +21,11 @@ const ItemsSectionSlice = createSlice({
         resetInitialLoad(state) {
             state.initialLoad = false;
         },
-        addItem: (state, action) => {
+        saveItem: (state, action) => {
             state.items?.unshift(action.payload);
         }
     }
 });
 
-export const { setItems, setPage, resetInitialLoad, addItem } = ItemsSectionSlice.actions;
-export default ItemsSectionSlice.reducer;
+export const { setItems, setPage, resetInitialLoad, saveItem } = itemsSectionSlice.actions;
+export default itemsSectionSlice.reducer;

@@ -1,23 +1,19 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import itemService from '../../services/itemService';
 import { ItemInput } from '../../../../__generated__/globalTypes';
+import { IAddItemPageState } from './types';
 
-interface SaveExistingItemState {
-    status: 'idle' | 'loading' | 'succeeded' | 'failed';
-    error: string | null;
-}
-
-const initialState: SaveExistingItemState = {
+const initialState: IAddItemPageState = {
     status: 'idle',
     error: null
 };
 
-export const saveExistingItem = createAsyncThunk(
-    'itemPage/saveExistingItem',
+export const addItem = createAsyncThunk(
+    'itemPage/addItem',
     async (itemInput: ItemInput, { rejectWithValue }) => {
         try {
             const data = await itemService
-                .updateItem(itemInput);
+                .addItem(itemInput);
             return data;
         } catch (err: any) {
             return rejectWithValue(err.response.data);
@@ -25,23 +21,23 @@ export const saveExistingItem = createAsyncThunk(
     }
 )
 
-const saveExistingItemSlice = createSlice({
-    name: 'saveExistingItem',
+const addItemPageSlice = createSlice({
+    name: 'addItemPage',
     initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(saveExistingItem.pending, (state, action) => {
+            .addCase(addItem.pending, (state, action) => {
                 state.status = 'loading';
             })
-            .addCase(saveExistingItem.fulfilled, (state, action) => {
+            .addCase(addItem.fulfilled, (state, action) => {
                 state.status = 'succeeded';
             })
-            .addCase(saveExistingItem.rejected, (state, action) => {
+            .addCase(addItem.rejected, (state, action) => {
                 state.status = 'failed';
-                state.error = 'Failed to save existing item';
+                state.error = 'Failed to save new item';
             })
     }
 });
 
-export default saveExistingItemSlice.reducer;
+export default addItemPageSlice.reducer;

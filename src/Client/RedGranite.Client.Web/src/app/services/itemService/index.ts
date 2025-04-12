@@ -1,13 +1,29 @@
 import { apolloClient } from "../../graphql";
-import { GET_ITEMS } from "./queries";
+import { GET_ITEM, GET_ITEMS } from "./queries";
+import { GetItem } from "./__generated__/GetItem";
 import { GetItems } from "./__generated__/GetItems";
-import { ADD_ITEM } from "./mutations";
+import { ADD_ITEM, UPDATE_ITEM } from "./mutations";
 import { AddItem } from "./__generated__/AddItem";
-import { UPDATE_ITEM } from "./mutations";
 import { UpdateItem } from "./__generated__/UpdateItem";
 import { ItemInput } from "../../../../__generated__/globalTypes";
 
 class ItemService {
+  async getItem(itemId: String | undefined): Promise<GetItem> {
+    try {
+      const response = await apolloClient.query({
+        query: GET_ITEM,
+        variables: { itemId },
+      });
+
+      if (!response || !response.data)
+        throw new Error("Cannot get item.");
+
+      return response.data.GetItem;
+    } catch (err) {
+      throw err;
+    }
+  }
+   
   async getItems(isoDateString: String, count = 20): Promise<GetItems> {
     try {
       const response = await apolloClient.query({
@@ -23,7 +39,7 @@ class ItemService {
       throw err;
     }
   }
-
+  
   async addItem(item: ItemInput): Promise<AddItem> {
     try {
       const response = await apolloClient.mutate({

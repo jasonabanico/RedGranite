@@ -1,6 +1,12 @@
-import { GetItem } from "../../services/itemService/__generated__/GetItem";
+import { ItemInput } from "../../../../__generated__/globalTypes";
+
+export interface IAddItemPageState {
+    status: 'idle' | 'loading' | 'succeeded' | 'failed';
+    error: string | null;
+}
 
 export interface IEditItemPageState {
-    initialLoad: boolean;
-    item: GetItem["GetItem"] | null;
+    status: 'idle' | 'loading' | 'succeeded' | 'failed';
+    error: string | null;
+    item: ItemInput | null;
 }

@@ -5,12 +5,14 @@ import {
   combineReducers
 } from "@reduxjs/toolkit";
 import itemsSectionReducer from "./containers/HomePage/itemsSectionSlice";
-import saveNewItemReducer from "./containers/ItemPage/saveNewItemSlice";
+import addItemPageReducer from "./containers/ItemPage/addItemPageSlice";
+import editItemPageReducer from './containers/ItemPage/editItemPageSlice';
 import ReduxLogger from "redux-logger";
 
 const rootReducer = combineReducers({
   itemsSection: itemsSectionReducer,
-  itemPageSaveNewItem: saveNewItemReducer,
+  addItemPage: addItemPageReducer,
+  editItemPage: editItemPageReducer,
 });
 
 export const store = configureStore({

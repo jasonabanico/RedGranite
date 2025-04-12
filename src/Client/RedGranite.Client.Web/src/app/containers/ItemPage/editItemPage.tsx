@@ -1,12 +1,13 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Container, Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import { ItemInput } from '../../../../__generated__/globalTypes';
 import { useAppDispatch } from '../../hooks';
-import { AddItem } from '../../services/itemService/__generated__/AddItem';
-//import { updateItem } from '../HomePage/itemsSectionSlice';
-import { saveNewItem } from './saveNewItemSlice';
+import { UpdateItem } from '../../services/itemService/__generated__/UpdateItem';
+import { updateItem } from './editItemPageSlice';
+import itemService from '../../services/itemService';
+import { setItem } from './editItemPageSlice';
 
 export function EditItemPage() {
     const [name, setName] = useState('');
@@ -14,6 +15,29 @@ export function EditItemPage() {
     const [longDescription, setLongDescription] = useState('');
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
+    const { itemId } = useParams();
+
+    const getItem = async (itemId: string | undefined) => {
+        var getItem = await itemService
+            .getItem(itemId)
+            .catch((err) => {
+                console.log("Error:", err);
+            });
+        return getItem?.GetItem;
+    }
+
+    useEffect(() => {
+        async function fetchItemDetails() {
+            const itemDetails = await getItem(itemId);
+            if (itemDetails != null) {
+                setName(itemDetails.name);
+                setShortDescription(itemDetails.shortDescription);
+                setLongDescription(itemDetails.longDescription);
+            }
+        }
+        fetchItemDetails();
+    }, [itemId]);
+
     const handleSubmit = async (event: any) => {
         event.preventDefault();
         var itemInput: ItemInput = {
@@ -22,9 +46,9 @@ export function EditItemPage() {
             shortDescription,
             longDescription    
         };
-        const savedItemAction = await dispatch(saveNewItem(itemInput));
-        const savedItem = savedItemAction.payload as AddItem;
-        itemInput.id = savedItem.AddItem ? savedItem.AddItem.id : "";
+        const savedItemAction = await dispatch(updateItem(itemInput));
+        const savedItem = savedItemAction.payload as UpdateItem;
+        itemInput.id = savedItem.UpdateItem ? savedItem.UpdateItem.id : "";
         //dispatch(updateItem(itemInput));
         navigate('/');
     };
