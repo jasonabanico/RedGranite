@@ -15,7 +15,7 @@ export function EditItemPage() {
     const [longDescription, setLongDescription] = useState('');
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
-    const { itemId } = useParams();
+    const { itemId } = useParams<{ itemId: string }>();
 
     const getItem = async (itemId: string | undefined) => {
         var getItem = await itemService

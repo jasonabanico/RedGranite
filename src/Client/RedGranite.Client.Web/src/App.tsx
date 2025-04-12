@@ -21,7 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/addItem" element={<AddItemPage />} />
-          <Route path="/editItem" element={<EditItemPage />} />
+          <Route path="/editItem/:itemId" element={<EditItemPage />} />
         </Routes>
       </Router>
     </AppContainer>

@@ -8,11 +8,11 @@ import { UpdateItem } from "./__generated__/UpdateItem";
 import { ItemInput } from "../../../../__generated__/globalTypes";
 
 class ItemService {
-  async getItem(itemId: String | undefined): Promise<GetItem> {
+  async getItem(id: String | undefined): Promise<GetItem> {
     try {
       const response = await apolloClient.query({
         query: GET_ITEM,
-        variables: { itemId },
+        variables: { id },
       });
 
       if (!response || !response.data)

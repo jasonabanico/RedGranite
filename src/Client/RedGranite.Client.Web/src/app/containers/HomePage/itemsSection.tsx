@@ -59,7 +59,7 @@ export function ItemsSection() {
 
     return (
         <Container>
-            <Link to="/addItem" className='btn btn-success my-3'>Create</Link>
+            <Link to="/addItem" className='btn btn-success my-3'>Add</Link>
             <Table className='itemsTable'>
                 <thead>
                     <tr>
@@ -76,7 +76,7 @@ export function ItemsSection() {
                             <td>{item.name}</td>
                             <td>{item.shortDescription}</td>
                             <td>
-                                <Button className='btn bt-sm btn-primary'>Edit</Button>
+                                <Link to={`/editItem/${item.id}`} className='btn bt-sm btn-primary'>Edit</Link>
                                 <Button className='btn bt-sm btn-danger ms-2'>Delete</Button>
                             </td>
                         </tr>
