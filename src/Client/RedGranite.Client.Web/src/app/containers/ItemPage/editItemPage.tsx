@@ -18,16 +18,22 @@ export function EditItemPage() {
     const { itemId } = useParams<{ itemId: string }>();
 
     const getItem = async (itemId: string | undefined) => {
-        var getItem = await itemService
-            .getItem(itemId)
-            .catch((err) => {
-                console.log("Error:", err);
-            });
-        return getItem?.GetItem;
-    }
+        try {
+            var getItem = await itemService
+                .getItem(itemId)
+                .catch((err) => {
+                    console.log("Error:", err);
+                });
+            return getItem?.GetItem;
+        } catch (err) {
+            console.error("Error fetching item:", err);
+            return null;
+        }
+    };
 
     useEffect(() => {
         async function fetchItemDetails() {
+            if (!itemId) return;
             const itemDetails = await getItem(itemId);
             if (itemDetails != null) {
                 setName(itemDetails.name);
@@ -40,16 +46,18 @@ export function EditItemPage() {
 
     const handleSubmit = async (event: any) => {
         event.preventDefault();
-        var itemInput: ItemInput = {
+
+        const itemInput: ItemInput = {
             id: "",
             name,
             shortDescription,
             longDescription    
         };
+
         const savedItemAction = await dispatch(updateItem(itemInput));
         const savedItem = savedItemAction.payload as UpdateItem;
         itemInput.id = savedItem.UpdateItem ? savedItem.UpdateItem.id : "";
-        //dispatch(updateItem(itemInput));
+        dispatch(updateItem(itemInput));
         navigate('/');
     };
 
@@ -60,16 +68,19 @@ export function EditItemPage() {
                 <Form.Group className="mb-3" controlId="formItemName">
                     <Form.Label htmlFor="name">Name</Form.Label>
                     <Form.Control type="text" name="name" placeholder="Enter name"
+                        value={name} 
                         onChange={e => setName(e.target.value)} />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formItemShortDescription">
                     <Form.Label htmlFor="shortDescrption">Short Description</Form.Label>
                     <Form.Control type="text" name="shortDescription" placeholder="Enter short description"
+                        value={shortDescription}
                         onChange={e => setShortDescription(e.target.value)} />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formItemLongDescription">
                     <Form.Label htmlFor="longDescription">Long Description</Form.Label>
                     <Form.Control type="text" name="longDescription" placeholder="Enter long description"
+                        value={longDescription}
                         onChange={e => setLongDescription(e.target.value)} />
                 </Form.Group>
                 <Button variant="primary" type="submit">

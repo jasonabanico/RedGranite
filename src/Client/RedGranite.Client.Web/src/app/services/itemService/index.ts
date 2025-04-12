@@ -18,7 +18,7 @@ class ItemService {
       if (!response || !response.data)
         throw new Error("Cannot get item.");
 
-      return response.data.GetItem;
+      return response.data;
     } catch (err) {
       throw err;
     }
