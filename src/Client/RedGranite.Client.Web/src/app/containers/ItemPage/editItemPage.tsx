@@ -58,7 +58,7 @@ export function EditItemPage() {
         const savedItem = savedItemAction.payload as UpdateItem;
         itemInput.id = savedItem.UpdateItem ? savedItem.UpdateItem.id : "";
         dispatch(updateItem(itemInput));
-        navigate('/');
+        navigate('/', { state: { updated: true } });
     };
 
     return (

@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { Dispatch } from "redux";
 import { createSelector } from "reselect";
 import { Container, Table, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "../../hooks";
 import { setItems, resetInitialLoad } from "./itemsSectionSlice";
 import itemService from "../../services/itemService";
@@ -30,6 +30,9 @@ export function ItemsSection() {
     const { initialLoad } = useAppSelector(initialLoadSelector);
     const { page } = useAppSelector(pageSelector);
     const { setItems, resetInitialLoad } = actionDispatch(useAppDispatch());
+    const location = useLocation();
+    const navigate = useNavigate();
+    const updated = location.state?.updated;
     const prevPageRef = useRef<number | undefined>(undefined);
 
     const fetchItems = async (page: number) => {
@@ -47,8 +50,12 @@ export function ItemsSection() {
             fetchItems(page);
             resetInitialLoad();
         }
+        if (updated) {
+            fetchItems(page);
+            navigate(location.pathname, { replace: true });
+        }
         prevPageRef.current = page;
-    }, [initialLoad, items, page]);
+    }, [initialLoad, items, page, updated]);
 
     useEffect(() => {
         if (!initialLoad && prevPageRef.current !== page) {
@@ -76,8 +83,10 @@ export function ItemsSection() {
                             <td>{item.name}</td>
                             <td>{item.shortDescription}</td>
                             <td>
-                                <Link to={`/editItem/${item.id}`} className='btn bt-sm btn-primary'>Edit</Link>
-                                <Button className='btn bt-sm btn-danger ms-2'>Delete</Button>
+                                <div className="d-flex align-items-center gap-2 flex-wrap">
+                                    <Link to={`/editItem/${item.id}`} className='btn bt-sm btn-primary' style={{ whiteSpace: "nowrap" }}>Edit</Link>
+                                    <Button className='btn bt-sm btn-danger' style={{ whiteSpace: "nowrap" }}>Delete</Button>
+                                </div>
                             </td>
                         </tr>
                     ))}
