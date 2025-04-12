@@ -1,5 +1,5 @@
 import { createSelector } from "reselect";
-import { IRootState } from "../../types";
+import { IRootState } from "../../../app/types";
 
 const selectEditItemPage = (state: IRootState) => state.editItemPage;
 

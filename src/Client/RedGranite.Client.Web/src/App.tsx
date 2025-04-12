@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { HomePage } from './app/containers/HomePage';
-import { AddItemPage } from './app/containers/ItemPage/addItemPage';
-import { EditItemPage } from "./app/containers/ItemPage/editItemPage";
+import { AddItemPage } from './features/items/addItem/addItemPage';
+import { EditItemPage } from "./features/items/editItem/editItemPage";
+import { HomePage } from "./pages/HomePage";
 
 const AppContainer = styled.div`
   width: 100%;

@@ -6,7 +6,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ApolloProvider } from '@apollo/client';
 import './index.css';
-import { apolloClient } from './app/graphql';
+import { apolloClient } from './graphql';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);

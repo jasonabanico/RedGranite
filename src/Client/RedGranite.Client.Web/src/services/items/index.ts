@@ -5,7 +5,7 @@ import { GetItems } from "./__generated__/GetItems";
 import { ADD_ITEM, UPDATE_ITEM } from "./mutations";
 import { AddItem } from "./__generated__/AddItem";
 import { UpdateItem } from "./__generated__/UpdateItem";
-import { ItemInput } from "../../../../__generated__/globalTypes";
+import { ItemInput } from "../../../__generated__/globalTypes";
 
 class ItemService {
   async getItem(id: String | undefined): Promise<GetItem> {

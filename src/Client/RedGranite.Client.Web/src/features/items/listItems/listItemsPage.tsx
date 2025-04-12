@@ -3,9 +3,9 @@ import { Dispatch } from "redux";
 import { createSelector } from "reselect";
 import { Container, Table, Button } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useAppSelector, useAppDispatch } from "../../hooks";
-import { setItems, resetInitialLoad } from "./itemsSectionSlice";
-import itemService from "../../services/itemService";
+import { useAppSelector, useAppDispatch } from "../../../app/hooks";
+import { setItems, resetInitialLoad } from "./listItemsPageSlice";
+import itemService from "../../../services/items";
 import { makeSelectInitialLoad, makeSelectItems, makeSelectPage } from "./selectors";
 
 const itemsSelector = createSelector(makeSelectItems, (items) => ({
@@ -25,7 +25,7 @@ const actionDispatch = (dispatch: Dispatch) => ({
     resetInitialLoad: () => dispatch(resetInitialLoad()),
 });
 
-export function ItemsSection() {
+export function ListItemsPage() {
     const { items } = useAppSelector(itemsSelector);
     const { initialLoad } = useAppSelector(initialLoadSelector);
     const { page } = useAppSelector(pageSelector);

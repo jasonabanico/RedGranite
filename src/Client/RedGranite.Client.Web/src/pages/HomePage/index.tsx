@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import { ItemsSection } from "./itemsSection";
+import { ListItemsPage } from "../../features/items/listItems/listItemsPage";
 
 interface IHomePageProps {
-
 }
 
 const Container = styled.div`
@@ -16,7 +15,7 @@ const Container = styled.div`
 export function HomePage(props: IHomePageProps) {
     return (
         <Container>
-            <ItemsSection />
+            <ListItemsPage />
         </Container>
     );
 }

@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import itemService from '../../services/itemService';
+import itemService from '../../../services/items';
 import { ItemInput } from '../../../../__generated__/globalTypes';
 import { IAddItemPageState } from './types';
 

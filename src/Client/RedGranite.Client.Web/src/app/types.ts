@@ -1,8 +1,9 @@
-import { IItemsSectionState } from "./containers/HomePage/types";
-import { IAddItemPageState, IEditItemPageState } from "./containers/ItemPage/types";
+import { IAddItemPageState } from "../features/items/addItem/types";
+import { IEditItemPageState } from "../features/items/editItem/types";
+import { IListItemsPageState } from "../features/items/listItems/types";
 
 export interface IRootState {
-  itemsSection: IItemsSectionState;
+  listItemsPage: IListItemsPageState;
   addItemPage: IAddItemPageState;
   editItemPage: IEditItemPageState;
 }

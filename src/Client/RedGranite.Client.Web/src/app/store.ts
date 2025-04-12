@@ -4,13 +4,13 @@ import {
   Action,
   combineReducers
 } from "@reduxjs/toolkit";
-import itemsSectionReducer from "./containers/HomePage/itemsSectionSlice";
-import addItemPageReducer from "./containers/ItemPage/addItemPageSlice";
-import editItemPageReducer from './containers/ItemPage/editItemPageSlice';
+import listItemsPageReducer from "../features/items/listItems/listItemsPageSlice";
+import addItemPageReducer from "../features/items/addItem/addItemPageSlice";
+import editItemPageReducer from '../features/items/editItem/editItemPageSlice';
 import ReduxLogger from "redux-logger";
 
 const rootReducer = combineReducers({
-  itemsSection: itemsSectionReducer,
+  listItemsPage: listItemsPageReducer,
   addItemPage: addItemPageReducer,
   editItemPage: editItemPageReducer,
 });
