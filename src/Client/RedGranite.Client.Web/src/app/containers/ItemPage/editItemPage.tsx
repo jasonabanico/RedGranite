@@ -48,7 +48,7 @@ export function EditItemPage() {
         event.preventDefault();
 
         const itemInput: ItemInput = {
-            id: "",
+            id: itemId || '',
             name,
             shortDescription,
             longDescription    
