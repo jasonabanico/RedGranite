@@ -6,7 +6,7 @@ namespace RedGranite.Server.Cosmos;
 
 public static class CosmosExtensions
 {
-    public static void AddRepository(this IServiceCollection service)
+    public static void AddRepositories(this IServiceCollection service)
     {
         service.AddScoped<IItemRepository, ItemRepository>();
     }

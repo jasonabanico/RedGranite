@@ -1,9 +1,8 @@
 ﻿using RedGranite.Server.Core.Models;
-using System.ComponentModel.DataAnnotations;
 
 namespace RedGranite.Server.Core.Interfaces;
 
-public interface IItemRepository
+public interface IItemService
 {
     Task<Item?> GetItemAsync(string id);
     Task<List<Item>> GetItemsAsync(DateTimeOffset? maxDate, int? count);

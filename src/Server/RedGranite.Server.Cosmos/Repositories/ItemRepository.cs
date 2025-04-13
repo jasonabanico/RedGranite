@@ -20,9 +20,9 @@ public class ItemRepository : IItemRepository
         }
     }
 
-    public async Task<Item> GetItemAsync(string id)
+    public async Task<Item?> GetItemAsync(string id)
     {
-        return await _dbContext.Items.FirstOrDefaultAsync(item => item.Id == id) ?? new Item();
+        return await _dbContext.Items.FirstOrDefaultAsync(item => item.Id == id);
     }
 
     public async Task<List<Item>> GetItemsAsync(DateTimeOffset? maxDate, int? count)
@@ -34,33 +34,29 @@ public class ItemRepository : IItemRepository
 
         maxDate = maxDate ?? new DateTimeOffset(2999, 1, 1, 0, 0, 0, TimeSpan.Zero);
         return items
-            .Where(i => i.UpdatedAt < maxDate)
-            .OrderByDescending(e => e.UpdatedAt)
+            .Where(i => i.LastModified < maxDate)
+            .OrderByDescending(e => e.LastModified)
             .Take(count ?? 50)
             .ToList();
     }
 
-    public async Task AddItemAsync(Item item)
+    public async Task<Item?> AddItemAsync(Item item)
     {
-        item.CreatedAt = DateTime.UtcNow;
-        item.UpdatedAt = DateTime.UtcNow;
         _dbContext.Add(item);
         await _dbContext.SaveChangesAsync();
+        return item;
     }
 
-    public async Task UpdateItemAsync(Item item)
+    public async Task<Item?> UpdateItemAsync(string id, Item item)
     {
-        var savedItem = await _dbContext.Items.FindAsync(item.Id);
+        var savedItem = await _dbContext.Items.FindAsync(id);
         if (savedItem != null)
         {
-            savedItem.Name = item.Name;
-            savedItem.ShortDescription = item.ShortDescription;
-            savedItem.LongDescription = item.LongDescription;
-            savedItem.UpdatedAt = DateTime.UtcNow;
-
+            savedItem.Update(item.Name, item.ShortDescription, item.LongDescription);
             _dbContext.Update(savedItem);
             await _dbContext.SaveChangesAsync();
         }
+        return savedItem;
     }
 
     public async Task DeleteItemAsync(string id)

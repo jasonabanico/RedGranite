@@ -12,10 +12,10 @@ namespace RedGranite.Server.Cosmos
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Item>()
-                .HasIndex(e => e.CreatedAt);
+                .HasIndex(e => e.Created);
 
             modelBuilder.Entity<Item>()
-                .HasIndex(e => e.UpdatedAt);
+                .HasIndex(e => e.LastModified);
         }
     }
 }

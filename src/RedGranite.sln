@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedGranite.Server.Cosmos", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedGranite.Server.GraphQl", "Server\RedGranite.Server.GraphQl\RedGranite.Server.GraphQl.csproj", "{6CA612F4-7747-46AA-913B-17F1A440594B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedGranite.Server.Services", "Server\RedGranite.Server.Services\RedGranite.Server.Services.csproj", "{488F5CC3-E02C-40E5-BD95-523BED013250}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{6CA612F4-7747-46AA-913B-17F1A440594B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CA612F4-7747-46AA-913B-17F1A440594B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CA612F4-7747-46AA-913B-17F1A440594B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{488F5CC3-E02C-40E5-BD95-523BED013250}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{488F5CC3-E02C-40E5-BD95-523BED013250}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{488F5CC3-E02C-40E5-BD95-523BED013250}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{488F5CC3-E02C-40E5-BD95-523BED013250}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{24DEEBC5-F361-4EBE-A380-F6B3E6F60CF2} = {AF0F0204-7A17-4C42-B9B0-4768B323948C}
 		{44754A2D-5382-41F0-9EF9-498D928F661F} = {6DA08C31-9B05-4C4A-A83F-4234243F5CBB}
 		{6CA612F4-7747-46AA-913B-17F1A440594B} = {6DA08C31-9B05-4C4A-A83F-4234243F5CBB}
+		{488F5CC3-E02C-40E5-BD95-523BED013250} = {6DA08C31-9B05-4C4A-A83F-4234243F5CBB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EFD7E57D-AEE3-49E2-A896-1BF1E26EFC39}
