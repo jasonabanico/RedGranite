@@ -4,7 +4,7 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 # Local appsettings
-src/Server/RedGranite.Api/appsettings.local.json
+src/Server/RedGranite.Server.Api/appsettings.Development.json
 
 # Ignores compiled TypeScript files
 src/Client/RedGranite.Web/ClientApp/**/*.js
