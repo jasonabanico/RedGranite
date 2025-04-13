@@ -10,6 +10,9 @@
         - .Net
         - HotChocolate
 
+# Setup
+- This implementation uses Cosmos. In src/Server/RedGranite.Server.Api/appsettings.Development.json, update the value of CosmosConnection with the connection string from Azure.
+
 # References
 - Redux Toolkit: https://redux-toolkit.js.org/
 - GraphQL: https://graphql.org/
