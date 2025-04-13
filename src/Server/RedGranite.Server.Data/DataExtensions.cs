@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using RedGranite.Server.Core.Interfaces;
-using RedGranite.Server.Cosmos.Repositories;
+using RedGranite.Server.Data.Repositories;
 
-namespace RedGranite.Server.Cosmos;
+namespace RedGranite.Server.Data;
 
-public static class CosmosExtensions
+public static class DataExtensions
 {
     public static void AddRepositories(this IServiceCollection service)
     {

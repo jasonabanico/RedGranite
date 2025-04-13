@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{AF0F02
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "RedGranite.Client.Web", "Client\RedGranite.Client.Web\RedGranite.Client.Web.esproj", "{24DEEBC5-F361-4EBE-A380-F6B3E6F60CF2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedGranite.Server.Cosmos", "Server\RedGranite.Server.Cosmos\RedGranite.Server.Cosmos.csproj", "{44754A2D-5382-41F0-9EF9-498D928F661F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedGranite.Server.Data", "Server\RedGranite.Server.Data\RedGranite.Server.Data.csproj", "{44754A2D-5382-41F0-9EF9-498D928F661F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedGranite.Server.GraphQl", "Server\RedGranite.Server.GraphQl\RedGranite.Server.GraphQl.csproj", "{6CA612F4-7747-46AA-913B-17F1A440594B}"
 EndProject

@@ -34,8 +34,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "schema:download": "npx apollo service:download --endpoint=http://localhost:5034/graphql/ ./src/app/graphql/graphql-schema.json",
-    "schema:generate-watch": "npx apollo codegen:generate --localSchemaFile=./src/app/graphql/graphql-schema.json --target=typescript --tagName=gql --watch"
+    "schema:download": "npx apollo service:download --endpoint=http://localhost:5034/graphql/ ./src/graphql/graphql-schema.json",
+    "schema:generate-watch": "npx apollo codegen:generate --localSchemaFile=./src/graphql/graphql-schema.json --target=typescript --tagName=gql --watch"
   },
   "eslintConfig": {
     "extends": [

@@ -2,7 +2,7 @@
 using RedGranite.Server.Core.Interfaces;
 using RedGranite.Server.Core.Models;
 
-namespace RedGranite.Server.Cosmos.Repositories;
+namespace RedGranite.Server.Data.Repositories;
 
 public class ItemRepository : IItemRepository
 {

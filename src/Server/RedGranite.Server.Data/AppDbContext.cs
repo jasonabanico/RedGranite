@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RedGranite.Server.Core.Models;
 
-namespace RedGranite.Server.Cosmos
+namespace RedGranite.Server.Data
 {
     public class AppDbContext : DbContext
     {
