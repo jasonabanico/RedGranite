@@ -9,8 +9,8 @@
     - Server
         - .Net
         - HotChocolate
-        - Cosmos DB
 
-# Guidance
-- React Pro Boilderplate: https://github.com/ipenywis/react-pro-boilerplate
-- HotChocolate: https://chillicream.com/docs/hotchocolate/v13/get-started-with-graphql-in-net-core
+# References
+- Redux Toolkit: https://redux-toolkit.js.org/
+- GraphQL: https://graphql.org/
+- HotChocolate: https://chillicream.com/docs/hotchocolate/v13
