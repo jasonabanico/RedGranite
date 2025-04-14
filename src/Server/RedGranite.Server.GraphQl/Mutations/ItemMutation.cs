@@ -24,8 +24,9 @@ public class ItemMutation
 
     [UseServiceScope]
     [GraphQLName("DeleteItem")]
-    public async Task DeleteItemAsync(string id, [Service] IItemService itemService)
+    public async Task<bool> DeleteItemAsync(string id, [Service] IItemService itemService)
     {
         await itemService.DeleteItemAsync(id);
+        return true;
     }
 }
