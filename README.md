@@ -3,67 +3,10 @@
 ## Description
 RedGranite is a full-stack boilerplate designed to help developers quickly build applications using React, Redux Toolkit, GraphQL, and .Net. It provides a solid foundation for creating scalable and maintainable applications with full CRUD (Create, Read, Update, Delete) functionality, leveraging GraphQL for efficient data operations.
 
-## Prerequisites
-- Node.js (version 14 or higher)
-- .NET SDK (version 9)
-- A code editor (e.g., Visual Studio Code)
-- Git
-
-## Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/jasonabanico/redgranite.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd redgranite
-   ```
-3. Install dependencies:
-   - For the client (frontend):
-     ```bash
-     cd client
-     npm install
-     ```
-   - For the server (backend):
-     ```bash
-     cd ../server
-     dotnet restore
-     ```
-
-## Running the Project
-1. Start the server:
-   - Navigate to the server directory:
-     ```bash
-     cd src\Server\RedGranite.Server.Api
-     ```
-   - Run the server:
-     ```bash
-     dotnet run
-     ```
-2. Start the client:
-   - Navigate to the client directory:
-     ```bash
-     cd src\Client\RedGranite.Client.Web
-     ```
-   - Run the client:
-     ```bash
-     npm start
-     ```
-3. Access the application:
-   - Open your browser and navigate to `http://localhost:3000` (or the specified port).
-
-## Using the GraphQL API
-- The GraphQL API is available at `http://localhost:5000/graphql` (or the server's port).
-- Use tools like GraphiQL or Postman to test queries and mutations.
-- Example query:
-   ```graphql
-   query {
-     users {
-       id
-       name
-     }
-   }
-   ```
+## Docs
+- [Setup](https://github.com/jasonabanico/RedGranite/blob/main/docs/setup.md)
+- [GraphQL](https://github.com/jasonabanico/RedGranite/blob/main/docs/graphql.md)
+- [Extending and Customizing](https://github.com/jasonabanico/RedGranite/blob/main/docs/customizing.md)
 
 ## Contributing
 - Contributions are welcome! Please follow these guidelines:
