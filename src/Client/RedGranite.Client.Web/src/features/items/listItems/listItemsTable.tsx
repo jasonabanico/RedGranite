@@ -37,14 +37,12 @@ export function ListItemsTable() {
     const prevPageRef = useRef<number | undefined>(undefined);
 
     const fetchItems = async (page: number) => {
-        const items = await itemService
-            .getItems("")
-            .catch((err) => {
-                console.log("Error:", err);
-            });
+        const items = await itemService.getItems("").catch((err) => {
+            console.log("Error:", err);
+        });
 
         if (items) setItems(items);
-    }
+    };
 
     useEffect(() => {
         if (initialLoad && (!items || items.length === 0)) {
@@ -68,8 +66,7 @@ export function ListItemsTable() {
     const handleDelete = async (id: string) => {
         const deleteAction = await dispatch(deleteItem(id));
         if (deleteAction.payload) {
-            fetchItems(page);
-            navigate('/');
+            setItems(items?.filter((item: any) => item.id !== id));
         } else {
             console.error("Delete failed");
         }
