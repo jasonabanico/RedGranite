@@ -1,6 +1,6 @@
 import { ItemInput } from "../../../../__generated__/globalTypes";
 
-export interface IEditItemPageState {
+export interface IEditItemFormState {
     status: 'idle' | 'loading' | 'succeeded' | 'failed';
     error: string | null;
     item: ItemInput | null;

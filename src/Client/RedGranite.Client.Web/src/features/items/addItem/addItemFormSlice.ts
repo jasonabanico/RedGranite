@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import itemService from '../../../services/items';
 import { ItemInput } from '../../../../__generated__/globalTypes';
-import { IAddItemPageState } from './types';
+import { IAddItemFormState as IAddItemFormState } from './types';
 
-const initialState: IAddItemPageState = {
+const initialState: IAddItemFormState = {
     status: 'idle',
     error: null
 };
@@ -21,8 +21,8 @@ export const addItem = createAsyncThunk(
     }
 )
 
-const addItemPageSlice = createSlice({
-    name: 'addItemPage',
+const addItemFormSlice = createSlice({
+    name: 'addItemForm',
     initialState,
     reducers: {},
     extraReducers: (builder) => {
@@ -40,4 +40,4 @@ const addItemPageSlice = createSlice({
     }
 });
 
-export default addItemPageSlice.reducer;
+export default addItemFormSlice.reducer;

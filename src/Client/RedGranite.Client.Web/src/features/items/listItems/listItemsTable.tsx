@@ -4,7 +4,7 @@ import { createSelector } from "reselect";
 import { Container, Table, Button } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "../../../app/hooks";
-import { setItems, resetInitialLoad } from "./listItemsPageSlice";
+import { setItems, resetInitialLoad } from "./listItemsTableSlice";
 import itemService from "../../../services/items";
 import { makeSelectInitialLoad, makeSelectItems, makeSelectPage } from "./selectors";
 
@@ -25,7 +25,7 @@ const actionDispatch = (dispatch: Dispatch) => ({
     resetInitialLoad: () => dispatch(resetInitialLoad()),
 });
 
-export function ListItemsPage() {
+export function ListItemsTable() {
     const { items } = useAppSelector(itemsSelector);
     const { initialLoad } = useAppSelector(initialLoadSelector);
     const { page } = useAppSelector(pageSelector);

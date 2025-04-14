@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { AddItemPage } from './features/items/addItem/addItemPage';
-import { EditItemPage } from "./features/items/editItem/editItemPage";
+import { AddItemForm } from './features/items/addItem/addItemForm';
+import { EditItemForm } from "./features/items/editItem/editItemForm";
 import { HomePage } from "./pages/HomePage";
 
 const AppContainer = styled.div`
@@ -20,8 +20,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/addItem" element={<AddItemPage />} />
-          <Route path="/editItem/:itemId" element={<EditItemPage />} />
+          <Route path="/addItem" element={<AddItemForm />} />
+          <Route path="/editItem/:itemId" element={<EditItemForm />} />
         </Routes>
       </Router>
     </AppContainer>

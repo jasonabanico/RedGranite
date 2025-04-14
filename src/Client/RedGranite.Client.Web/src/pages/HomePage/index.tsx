@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ListItemsPage } from "../../features/items/listItems/listItemsPage";
+import { ListItemsTable } from "../../features/items/listItems/listItemsTable";
 
 interface IHomePageProps {
 }
@@ -15,7 +15,7 @@ const Container = styled.div`
 export function HomePage(props: IHomePageProps) {
     return (
         <Container>
-            <ListItemsPage />
+            <ListItemsTable />
         </Container>
     );
 }

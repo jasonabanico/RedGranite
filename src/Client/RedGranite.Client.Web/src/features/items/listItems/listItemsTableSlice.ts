@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { IListItemsPageState as IListItemsPageState } from './types';
+import { IListItemsTableState as IListItemsTableState } from './types';
 
-const initialState: IListItemsPageState = {
+const initialState: IListItemsTableState = {
     initialLoad: true,
     page: 1,
     items: [],
 }
 
-const listItemsPageSlice = createSlice({
+const listItemsTableSlice = createSlice({
     name: 'homePage',
     initialState,
     reducers: {
@@ -27,5 +27,5 @@ const listItemsPageSlice = createSlice({
     }
 });
 
-export const { setItems, setPage, resetInitialLoad, saveItem } = listItemsPageSlice.actions;
-export default listItemsPageSlice.reducer;
+export const { setItems, setPage, resetInitialLoad, saveItem } = listItemsTableSlice.actions;
+export default listItemsTableSlice.reducer;

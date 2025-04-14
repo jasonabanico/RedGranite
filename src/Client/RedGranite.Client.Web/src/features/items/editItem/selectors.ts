@@ -1,9 +1,9 @@
 import { createSelector } from "reselect";
 import { IRootState } from "../../../app/types";
 
-const selectEditItemPage = (state: IRootState) => state.editItemPage;
+const selectEditItemForm = (state: IRootState) => state.editItemForm;
 
 export const makeSelectItem = createSelector(
-    selectEditItemPage, 
-    (editItemPage) => editItemPage.item
+    selectEditItemForm, 
+    (editItemForm) => editItemForm.item
 );

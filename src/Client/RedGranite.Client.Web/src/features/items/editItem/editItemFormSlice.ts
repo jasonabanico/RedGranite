@@ -1,16 +1,16 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import itemService from '../../../services/items';
 import { ItemInput } from '../../../../__generated__/globalTypes';
-import { IEditItemPageState } from './types';
+import { IEditItemFormState } from './types';
 
-const initialState: IEditItemPageState = {
+const initialState: IEditItemFormState = {
     status: 'idle',
     error: null,
     item: null
 };
 
 export const updateItem = createAsyncThunk(
-    'editItemPage/updateItem',
+    'editItemForm/updateItem',
     async (itemInput: ItemInput, { rejectWithValue }) => {
         try {
             const data = await itemService.updateItem(itemInput);
@@ -21,8 +21,8 @@ export const updateItem = createAsyncThunk(
     }
 );
 
-const editItemPageSlice = createSlice({
-    name: 'editItemPage',
+const editItemFormSlice = createSlice({
+    name: 'editItemForm',
     initialState,
     reducers: {
         setItem: (state, action) => {
@@ -44,5 +44,5 @@ const editItemPageSlice = createSlice({
     }
 });
 
-export const { setItem } = editItemPageSlice.actions;
-export default editItemPageSlice.reducer;
+export const { setItem } = editItemFormSlice.actions;
+export default editItemFormSlice.reducer;

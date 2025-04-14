@@ -1,19 +1,19 @@
 import { createSelector } from "reselect";
 import { IRootState } from "../../../app/types";
 
-const listItemsPage = (state: IRootState) => state.listItemsPage;
+const listItemsTable = (state: IRootState) => state.listItemsTable;
 
 export const makeSelectItems = createSelector(
-    listItemsPage, 
-    (listItemsPage) => listItemsPage.items
+    listItemsTable, 
+    (listItemsTable) => listItemsTable.items
 );
 
 export const makeSelectInitialLoad = createSelector(
-    listItemsPage, 
-    (listItemsPage) => listItemsPage.initialLoad
+    listItemsTable, 
+    (listItemsTable) => listItemsTable.initialLoad
 );
 
 export const makeSelectPage = createSelector(
-    listItemsPage, 
-    (listItemsPage) => listItemsPage.page
+    listItemsTable, 
+    (listItemsTable) => listItemsTable.page
 );
