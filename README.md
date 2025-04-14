@@ -76,12 +76,12 @@ RedGranite is a full-stack boilerplate designed to help developers quickly build
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## Documentation
-- [React Documentation](https://reactjs.org/)
-- [Redux Toolkit Documentation](https://redux-toolkit.js.org/)
-- [GraphQL Documentation](https://graphql.org/)
+## References
+- [React](https://reactjs.org/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [GraphQL](https://graphql.org/)
 - [HotChocolate](https://chillicream.com/docs/hotchocolate/v13)
-- [.Net Documentation](https://docs.microsoft.com/en-us/dotnet/)
+- [.Net](https://docs.microsoft.com/en-us/dotnet/)
 
 ## Additional Notes
 - This boilerplate is designed for scalability and includes best practices for state management, data fetching, and backend development.
