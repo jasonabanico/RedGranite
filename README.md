@@ -80,6 +80,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - [React](https://reactjs.org/)
 - [Redux Toolkit](https://redux-toolkit.js.org/)
 - [GraphQL](https://graphql.org/)
+- [Apollo GraphQL with Typescript](https://www.apollographql.com/docs/react/development-testing/static-typing)
 - [HotChocolate](https://chillicream.com/docs/hotchocolate/v13)
 - [.Net](https://docs.microsoft.com/en-us/dotnet/)
 
