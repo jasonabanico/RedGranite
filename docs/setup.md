@@ -28,6 +28,15 @@
      ```
 
 ## Running the Project
+1. Add storage.
+   - This implementation defaults to Azure CosmosDB (while also supporting other data implementations with EntityFramework).
+   - Update the appsettings.Development.json file at src\Server\RedGranite.Server.Api and provide a value for the Cosmos connection.
+     ```json
+        "ConnectionStrings": {
+            "CosmosConnection": "[connection string]"
+        }
+     ```
+
 1. Start the server:
    - Navigate to the server directory:
      ```bash
