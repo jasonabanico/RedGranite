@@ -9,7 +9,7 @@ const initialState: IAddItemFormState = {
 };
 
 export const addItem = createAsyncThunk(
-    'itemPage/addItem',
+    'addItemForm/addItem',
     async (itemInput: ItemInput, { rejectWithValue }) => {
         try {
             const data = await itemService

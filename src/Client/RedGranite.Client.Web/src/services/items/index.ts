@@ -2,7 +2,7 @@ import { apolloClient } from "../../graphql";
 import { GET_ITEM, GET_ITEMS } from "./queries";
 import { GetItem } from "./__generated__/GetItem";
 import { GetItems } from "./__generated__/GetItems";
-import { ADD_ITEM, UPDATE_ITEM } from "./mutations";
+import { ADD_ITEM, DELETE_ITEM, UPDATE_ITEM } from "./mutations";
 import { AddItem } from "./__generated__/AddItem";
 import { UpdateItem } from "./__generated__/UpdateItem";
 import { ItemInput } from "../../../__generated__/globalTypes";
@@ -66,6 +66,23 @@ class ItemService {
       if (!response || !response.data)
         throw new Error("Cannot update item.");
 
+      return response.data;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  async deleteItem(id: string): Promise<boolean> {
+    try {
+      const response = await apolloClient.mutate({
+        mutation: DELETE_ITEM,
+        variables: { id },
+      });
+  
+      if (!response || !response.data) {
+        throw new Error("Cannot delete item.");
+      }
+  
       return response.data;
     } catch (err) {
       throw err;

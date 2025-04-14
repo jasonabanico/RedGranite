@@ -4,7 +4,7 @@ import { createSelector } from "reselect";
 import { Container, Table, Button } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "../../../app/hooks";
-import { setItems, resetInitialLoad } from "./listItemsTableSlice";
+import { setItems, resetInitialLoad, deleteItem } from "./listItemsTableSlice";
 import itemService from "../../../services/items";
 import { makeSelectInitialLoad, makeSelectItems, makeSelectPage } from "./selectors";
 
@@ -31,6 +31,7 @@ export function ListItemsTable() {
     const { page } = useAppSelector(pageSelector);
     const { setItems, resetInitialLoad } = actionDispatch(useAppDispatch());
     const location = useLocation();
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const updated = location.state?.updated;
     const prevPageRef = useRef<number | undefined>(undefined);
@@ -64,6 +65,16 @@ export function ListItemsTable() {
         prevPageRef.current = page;
     }, [page, initialLoad]);
 
+    const handleDelete = async (id: string) => {
+        const deleteAction = await dispatch(deleteItem(id));
+        if (deleteAction.payload) {
+            fetchItems(page);
+            navigate('/');
+        } else {
+            console.error("Delete failed");
+        }
+    };
+
     return (
         <Container>
             <Link to="/addItem" className='btn btn-success my-3'>Add</Link>
@@ -85,7 +96,7 @@ export function ListItemsTable() {
                             <td>
                                 <div className="d-flex align-items-center gap-2 flex-wrap">
                                     <Link to={`/editItem/${item.id}`} className='btn bt-sm btn-primary' style={{ whiteSpace: "nowrap" }}>Edit</Link>
-                                    <Button className='btn bt-sm btn-danger' style={{ whiteSpace: "nowrap" }}>Delete</Button>
+                                    <Button className='btn bt-sm btn-danger' style={{ whiteSpace: "nowrap" }} onClick={() => handleDelete(item.id)}>Delete</Button>
                                 </div>
                             </td>
                         </tr>
