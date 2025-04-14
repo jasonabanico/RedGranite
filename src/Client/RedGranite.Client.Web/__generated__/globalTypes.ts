@@ -9,8 +9,6 @@
 
 export interface ItemInput {
   id: string;
-  createdAt?: any | null;
-  updatedAt?: any | null;
   name: string;
   shortDescription: string;
   longDescription: string;

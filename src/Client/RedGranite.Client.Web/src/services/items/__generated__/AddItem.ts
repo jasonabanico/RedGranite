@@ -3,7 +3,7 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { ItemInput } from "../../../../__generated__/globalTypes";
+import { ItemInput } from "./../../../../__generated__/globalTypes";
 
 // ====================================================
 // GraphQL mutation operation: AddItem
@@ -15,7 +15,7 @@ export interface AddItem_AddItem {
 }
 
 export interface AddItem {
-  AddItem: AddItem_AddItem;
+  AddItem: AddItem_AddItem | null;
 }
 
 export interface AddItemVariables {
