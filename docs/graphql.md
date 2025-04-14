@@ -39,14 +39,14 @@
             name: "New Item",
             shortDescription: "Short description",
             longDescription: "Long description"
-    }) {
-        id
-        name
-        shortDescription
-        longDescription
-        created
-        lastModified
-    }
+        }) {
+            id
+            name
+            shortDescription
+            longDescription
+            created
+            lastModified
+        }
     }
     ```
 
