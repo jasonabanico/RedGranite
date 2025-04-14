@@ -1,7 +1,7 @@
 # RedGranite: React + Redux Toolkit + GraphQL + .Net Boilerplate
 
 ## Description
-RedGranite is a full-stack boilerplate project designed to help developers quickly build applications using React, Redux Toolkit, GraphQL, and .Net. It provides a solid foundation for creating scalable and maintainable applications.
+RedGranite is a full-stack boilerplate designed to help developers quickly build applications using React, Redux Toolkit, GraphQL, and .Net. It provides a solid foundation for creating scalable and maintainable applications with full CRUD (Create, Read, Update, Delete) functionality, leveraging GraphQL for efficient data operations.
 
 ## Prerequisites
 - Node.js (version 14 or higher)
