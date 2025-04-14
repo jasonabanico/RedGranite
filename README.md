@@ -34,7 +34,7 @@ RedGranite is a full-stack boilerplate project designed to help developers quick
 1. Start the server:
    - Navigate to the server directory:
      ```bash
-     cd server
+     cd src\Server'RedGranite.Server.Api
      ```
    - Run the server:
      ```bash
@@ -43,7 +43,7 @@ RedGranite is a full-stack boilerplate project designed to help developers quick
 2. Start the client:
    - Navigate to the client directory:
      ```bash
-     cd ../client
+     cd src\Client'RedGranite.Client.Web
      ```
    - Run the client:
      ```bash
