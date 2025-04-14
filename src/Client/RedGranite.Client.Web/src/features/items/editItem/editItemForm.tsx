@@ -61,6 +61,10 @@ export function EditItemForm() {
         navigate('/', { state: { updated: true } });
     };
 
+    const handleCancel = () => {
+        navigate('/');
+    };
+
     return (
         <Container>
             <h2>Edit Item</h2>
@@ -83,9 +87,8 @@ export function EditItemForm() {
                         value={longDescription}
                         onChange={e => setLongDescription(e.target.value)} />
                 </Form.Group>
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
+                <Button variant="primary" type="submit">Submit</Button>
+                <Button variant="secondary" onClick={handleCancel} className="mx-2">Cancel</Button>
             </Form>
         </Container>
     );

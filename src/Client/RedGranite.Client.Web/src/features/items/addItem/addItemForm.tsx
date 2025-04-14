@@ -30,6 +30,10 @@ export function AddItemForm() {
         navigate('/');
     };
 
+    const handleCancel = () => {
+        navigate('/');
+    };
+
     return (
         <Container>
             <h2>Add Item</h2>
@@ -49,9 +53,8 @@ export function AddItemForm() {
                     <Form.Control type="text" name="longDescription" placeholder="Enter long description"
                         onChange={e => setLongDescription(e.target.value)} />
                 </Form.Group>
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
+                <Button variant="primary" type="submit">Submit</Button>
+                <Button variant="secondary" onClick={handleCancel} className="mx-2">Cancel</Button>
             </Form>
         </Container>
     );
