@@ -8,14 +8,6 @@ RedGranite is a full-stack boilerplate designed to help developers quickly build
 - [GraphQL](https://github.com/jasonabanico/RedGranite/blob/main/docs/graphql.md)
 - [Extending and Customizing](https://github.com/jasonabanico/RedGranite/blob/main/docs/customizing.md)
 
-## Contributing
-- Contributions are welcome! Please follow these guidelines:
-  - Fork the repository.
-  - Create a feature branch (`git checkout -b feature/new-feature`).
-  - Commit your changes (`git commit -m "Add new feature"`).
-  - Push to your fork (`git push origin feature/new-feature`).
-  - Submit a pull request.
-
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
