@@ -5,7 +5,7 @@ RedGranite is a full-stack boilerplate designed to help developers quickly build
 
 ## Prerequisites
 - Node.js (version 14 or higher)
-- .NET SDK (version 6 or higher)
+- .NET SDK (version 9)
 - A code editor (e.g., Visual Studio Code)
 - Git
 
