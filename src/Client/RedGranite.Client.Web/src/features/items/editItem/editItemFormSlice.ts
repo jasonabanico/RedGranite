@@ -25,8 +25,10 @@ const editItemFormSlice = createSlice({
     name: 'editItemForm',
     initialState,
     reducers: {
-        setItem: (state, action) => {
-            state.item = action.payload;
+        resetEditForm: (state) => {
+            state.status = 'idle';
+            state.error = null;
+            state.item = null;
         }
     },
     extraReducers: (builder) => {
@@ -44,5 +46,5 @@ const editItemFormSlice = createSlice({
     }
 });
 
-export const { setItem } = editItemFormSlice.actions;
+export const { resetEditForm } = editItemFormSlice.actions;
 export default editItemFormSlice.reducer;

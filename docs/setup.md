@@ -51,9 +51,18 @@
      ```bash
      cd src\Client\RedGranite.Client.Web
      ```
-   - Run the client:
+   - Run the client (development mode with Vite):
      ```bash
-     npm start
+     npm run dev
      ```
 3. Access the application:
    - Open your browser and navigate to `http://localhost:3000` (or the specified port).
+
+## Client Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server with hot reload |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview production build locally |
+| `npm run test` | Run tests with Vitest |

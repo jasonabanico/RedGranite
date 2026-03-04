@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using RedGranite.Server.GraphQl.Errors;
 using RedGranite.Server.GraphQl.Mutations;
 using RedGranite.Server.GraphQl.Queries;
 
@@ -10,6 +11,8 @@ public static class DataExtensions
     {
         services
             .AddGraphQLServer()
+            .AddAuthorization()
+            .AddErrorFilter<GraphQlErrorFilter>()
             .AddMutationType<ItemMutation>()
             .AddQueryType<ItemQuery>();
     }
